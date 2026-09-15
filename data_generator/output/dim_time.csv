@@ -1,0 +1,902 @@
+TimeKey,Hour,Minute,TimeSlot
+700,7,0,Morning Rush
+701,7,1,Morning Rush
+702,7,2,Morning Rush
+703,7,3,Morning Rush
+704,7,4,Morning Rush
+705,7,5,Morning Rush
+706,7,6,Morning Rush
+707,7,7,Morning Rush
+708,7,8,Morning Rush
+709,7,9,Morning Rush
+710,7,10,Morning Rush
+711,7,11,Morning Rush
+712,7,12,Morning Rush
+713,7,13,Morning Rush
+714,7,14,Morning Rush
+715,7,15,Morning Rush
+716,7,16,Morning Rush
+717,7,17,Morning Rush
+718,7,18,Morning Rush
+719,7,19,Morning Rush
+720,7,20,Morning Rush
+721,7,21,Morning Rush
+722,7,22,Morning Rush
+723,7,23,Morning Rush
+724,7,24,Morning Rush
+725,7,25,Morning Rush
+726,7,26,Morning Rush
+727,7,27,Morning Rush
+728,7,28,Morning Rush
+729,7,29,Morning Rush
+730,7,30,Morning Rush
+731,7,31,Morning Rush
+732,7,32,Morning Rush
+733,7,33,Morning Rush
+734,7,34,Morning Rush
+735,7,35,Morning Rush
+736,7,36,Morning Rush
+737,7,37,Morning Rush
+738,7,38,Morning Rush
+739,7,39,Morning Rush
+740,7,40,Morning Rush
+741,7,41,Morning Rush
+742,7,42,Morning Rush
+743,7,43,Morning Rush
+744,7,44,Morning Rush
+745,7,45,Morning Rush
+746,7,46,Morning Rush
+747,7,47,Morning Rush
+748,7,48,Morning Rush
+749,7,49,Morning Rush
+750,7,50,Morning Rush
+751,7,51,Morning Rush
+752,7,52,Morning Rush
+753,7,53,Morning Rush
+754,7,54,Morning Rush
+755,7,55,Morning Rush
+756,7,56,Morning Rush
+757,7,57,Morning Rush
+758,7,58,Morning Rush
+759,7,59,Morning Rush
+800,8,0,Morning Rush
+801,8,1,Morning Rush
+802,8,2,Morning Rush
+803,8,3,Morning Rush
+804,8,4,Morning Rush
+805,8,5,Morning Rush
+806,8,6,Morning Rush
+807,8,7,Morning Rush
+808,8,8,Morning Rush
+809,8,9,Morning Rush
+810,8,10,Morning Rush
+811,8,11,Morning Rush
+812,8,12,Morning Rush
+813,8,13,Morning Rush
+814,8,14,Morning Rush
+815,8,15,Morning Rush
+816,8,16,Morning Rush
+817,8,17,Morning Rush
+818,8,18,Morning Rush
+819,8,19,Morning Rush
+820,8,20,Morning Rush
+821,8,21,Morning Rush
+822,8,22,Morning Rush
+823,8,23,Morning Rush
+824,8,24,Morning Rush
+825,8,25,Morning Rush
+826,8,26,Morning Rush
+827,8,27,Morning Rush
+828,8,28,Morning Rush
+829,8,29,Morning Rush
+830,8,30,Morning Rush
+831,8,31,Morning Rush
+832,8,32,Morning Rush
+833,8,33,Morning Rush
+834,8,34,Morning Rush
+835,8,35,Morning Rush
+836,8,36,Morning Rush
+837,8,37,Morning Rush
+838,8,38,Morning Rush
+839,8,39,Morning Rush
+840,8,40,Morning Rush
+841,8,41,Morning Rush
+842,8,42,Morning Rush
+843,8,43,Morning Rush
+844,8,44,Morning Rush
+845,8,45,Morning Rush
+846,8,46,Morning Rush
+847,8,47,Morning Rush
+848,8,48,Morning Rush
+849,8,49,Morning Rush
+850,8,50,Morning Rush
+851,8,51,Morning Rush
+852,8,52,Morning Rush
+853,8,53,Morning Rush
+854,8,54,Morning Rush
+855,8,55,Morning Rush
+856,8,56,Morning Rush
+857,8,57,Morning Rush
+858,8,58,Morning Rush
+859,8,59,Morning Rush
+900,9,0,Morning Rush
+901,9,1,Morning Rush
+902,9,2,Morning Rush
+903,9,3,Morning Rush
+904,9,4,Morning Rush
+905,9,5,Morning Rush
+906,9,6,Morning Rush
+907,9,7,Morning Rush
+908,9,8,Morning Rush
+909,9,9,Morning Rush
+910,9,10,Morning Rush
+911,9,11,Morning Rush
+912,9,12,Morning Rush
+913,9,13,Morning Rush
+914,9,14,Morning Rush
+915,9,15,Morning Rush
+916,9,16,Morning Rush
+917,9,17,Morning Rush
+918,9,18,Morning Rush
+919,9,19,Morning Rush
+920,9,20,Morning Rush
+921,9,21,Morning Rush
+922,9,22,Morning Rush
+923,9,23,Morning Rush
+924,9,24,Morning Rush
+925,9,25,Morning Rush
+926,9,26,Morning Rush
+927,9,27,Morning Rush
+928,9,28,Morning Rush
+929,9,29,Morning Rush
+930,9,30,Morning Rush
+931,9,31,Morning Rush
+932,9,32,Morning Rush
+933,9,33,Morning Rush
+934,9,34,Morning Rush
+935,9,35,Morning Rush
+936,9,36,Morning Rush
+937,9,37,Morning Rush
+938,9,38,Morning Rush
+939,9,39,Morning Rush
+940,9,40,Morning Rush
+941,9,41,Morning Rush
+942,9,42,Morning Rush
+943,9,43,Morning Rush
+944,9,44,Morning Rush
+945,9,45,Morning Rush
+946,9,46,Morning Rush
+947,9,47,Morning Rush
+948,9,48,Morning Rush
+949,9,49,Morning Rush
+950,9,50,Morning Rush
+951,9,51,Morning Rush
+952,9,52,Morning Rush
+953,9,53,Morning Rush
+954,9,54,Morning Rush
+955,9,55,Morning Rush
+956,9,56,Morning Rush
+957,9,57,Morning Rush
+958,9,58,Morning Rush
+959,9,59,Morning Rush
+1000,10,0,Morning Rush
+1001,10,1,Morning Rush
+1002,10,2,Morning Rush
+1003,10,3,Morning Rush
+1004,10,4,Morning Rush
+1005,10,5,Morning Rush
+1006,10,6,Morning Rush
+1007,10,7,Morning Rush
+1008,10,8,Morning Rush
+1009,10,9,Morning Rush
+1010,10,10,Morning Rush
+1011,10,11,Morning Rush
+1012,10,12,Morning Rush
+1013,10,13,Morning Rush
+1014,10,14,Morning Rush
+1015,10,15,Morning Rush
+1016,10,16,Morning Rush
+1017,10,17,Morning Rush
+1018,10,18,Morning Rush
+1019,10,19,Morning Rush
+1020,10,20,Morning Rush
+1021,10,21,Morning Rush
+1022,10,22,Morning Rush
+1023,10,23,Morning Rush
+1024,10,24,Morning Rush
+1025,10,25,Morning Rush
+1026,10,26,Morning Rush
+1027,10,27,Morning Rush
+1028,10,28,Morning Rush
+1029,10,29,Morning Rush
+1030,10,30,Midday Lunch
+1031,10,31,Midday Lunch
+1032,10,32,Midday Lunch
+1033,10,33,Midday Lunch
+1034,10,34,Midday Lunch
+1035,10,35,Midday Lunch
+1036,10,36,Midday Lunch
+1037,10,37,Midday Lunch
+1038,10,38,Midday Lunch
+1039,10,39,Midday Lunch
+1040,10,40,Midday Lunch
+1041,10,41,Midday Lunch
+1042,10,42,Midday Lunch
+1043,10,43,Midday Lunch
+1044,10,44,Midday Lunch
+1045,10,45,Midday Lunch
+1046,10,46,Midday Lunch
+1047,10,47,Midday Lunch
+1048,10,48,Midday Lunch
+1049,10,49,Midday Lunch
+1050,10,50,Midday Lunch
+1051,10,51,Midday Lunch
+1052,10,52,Midday Lunch
+1053,10,53,Midday Lunch
+1054,10,54,Midday Lunch
+1055,10,55,Midday Lunch
+1056,10,56,Midday Lunch
+1057,10,57,Midday Lunch
+1058,10,58,Midday Lunch
+1059,10,59,Midday Lunch
+1100,11,0,Midday Lunch
+1101,11,1,Midday Lunch
+1102,11,2,Midday Lunch
+1103,11,3,Midday Lunch
+1104,11,4,Midday Lunch
+1105,11,5,Midday Lunch
+1106,11,6,Midday Lunch
+1107,11,7,Midday Lunch
+1108,11,8,Midday Lunch
+1109,11,9,Midday Lunch
+1110,11,10,Midday Lunch
+1111,11,11,Midday Lunch
+1112,11,12,Midday Lunch
+1113,11,13,Midday Lunch
+1114,11,14,Midday Lunch
+1115,11,15,Midday Lunch
+1116,11,16,Midday Lunch
+1117,11,17,Midday Lunch
+1118,11,18,Midday Lunch
+1119,11,19,Midday Lunch
+1120,11,20,Midday Lunch
+1121,11,21,Midday Lunch
+1122,11,22,Midday Lunch
+1123,11,23,Midday Lunch
+1124,11,24,Midday Lunch
+1125,11,25,Midday Lunch
+1126,11,26,Midday Lunch
+1127,11,27,Midday Lunch
+1128,11,28,Midday Lunch
+1129,11,29,Midday Lunch
+1130,11,30,Midday Lunch
+1131,11,31,Midday Lunch
+1132,11,32,Midday Lunch
+1133,11,33,Midday Lunch
+1134,11,34,Midday Lunch
+1135,11,35,Midday Lunch
+1136,11,36,Midday Lunch
+1137,11,37,Midday Lunch
+1138,11,38,Midday Lunch
+1139,11,39,Midday Lunch
+1140,11,40,Midday Lunch
+1141,11,41,Midday Lunch
+1142,11,42,Midday Lunch
+1143,11,43,Midday Lunch
+1144,11,44,Midday Lunch
+1145,11,45,Midday Lunch
+1146,11,46,Midday Lunch
+1147,11,47,Midday Lunch
+1148,11,48,Midday Lunch
+1149,11,49,Midday Lunch
+1150,11,50,Midday Lunch
+1151,11,51,Midday Lunch
+1152,11,52,Midday Lunch
+1153,11,53,Midday Lunch
+1154,11,54,Midday Lunch
+1155,11,55,Midday Lunch
+1156,11,56,Midday Lunch
+1157,11,57,Midday Lunch
+1158,11,58,Midday Lunch
+1159,11,59,Midday Lunch
+1200,12,0,Midday Lunch
+1201,12,1,Midday Lunch
+1202,12,2,Midday Lunch
+1203,12,3,Midday Lunch
+1204,12,4,Midday Lunch
+1205,12,5,Midday Lunch
+1206,12,6,Midday Lunch
+1207,12,7,Midday Lunch
+1208,12,8,Midday Lunch
+1209,12,9,Midday Lunch
+1210,12,10,Midday Lunch
+1211,12,11,Midday Lunch
+1212,12,12,Midday Lunch
+1213,12,13,Midday Lunch
+1214,12,14,Midday Lunch
+1215,12,15,Midday Lunch
+1216,12,16,Midday Lunch
+1217,12,17,Midday Lunch
+1218,12,18,Midday Lunch
+1219,12,19,Midday Lunch
+1220,12,20,Midday Lunch
+1221,12,21,Midday Lunch
+1222,12,22,Midday Lunch
+1223,12,23,Midday Lunch
+1224,12,24,Midday Lunch
+1225,12,25,Midday Lunch
+1226,12,26,Midday Lunch
+1227,12,27,Midday Lunch
+1228,12,28,Midday Lunch
+1229,12,29,Midday Lunch
+1230,12,30,Midday Lunch
+1231,12,31,Midday Lunch
+1232,12,32,Midday Lunch
+1233,12,33,Midday Lunch
+1234,12,34,Midday Lunch
+1235,12,35,Midday Lunch
+1236,12,36,Midday Lunch
+1237,12,37,Midday Lunch
+1238,12,38,Midday Lunch
+1239,12,39,Midday Lunch
+1240,12,40,Midday Lunch
+1241,12,41,Midday Lunch
+1242,12,42,Midday Lunch
+1243,12,43,Midday Lunch
+1244,12,44,Midday Lunch
+1245,12,45,Midday Lunch
+1246,12,46,Midday Lunch
+1247,12,47,Midday Lunch
+1248,12,48,Midday Lunch
+1249,12,49,Midday Lunch
+1250,12,50,Midday Lunch
+1251,12,51,Midday Lunch
+1252,12,52,Midday Lunch
+1253,12,53,Midday Lunch
+1254,12,54,Midday Lunch
+1255,12,55,Midday Lunch
+1256,12,56,Midday Lunch
+1257,12,57,Midday Lunch
+1258,12,58,Midday Lunch
+1259,12,59,Midday Lunch
+1300,13,0,Midday Lunch
+1301,13,1,Midday Lunch
+1302,13,2,Midday Lunch
+1303,13,3,Midday Lunch
+1304,13,4,Midday Lunch
+1305,13,5,Midday Lunch
+1306,13,6,Midday Lunch
+1307,13,7,Midday Lunch
+1308,13,8,Midday Lunch
+1309,13,9,Midday Lunch
+1310,13,10,Midday Lunch
+1311,13,11,Midday Lunch
+1312,13,12,Midday Lunch
+1313,13,13,Midday Lunch
+1314,13,14,Midday Lunch
+1315,13,15,Midday Lunch
+1316,13,16,Midday Lunch
+1317,13,17,Midday Lunch
+1318,13,18,Midday Lunch
+1319,13,19,Midday Lunch
+1320,13,20,Midday Lunch
+1321,13,21,Midday Lunch
+1322,13,22,Midday Lunch
+1323,13,23,Midday Lunch
+1324,13,24,Midday Lunch
+1325,13,25,Midday Lunch
+1326,13,26,Midday Lunch
+1327,13,27,Midday Lunch
+1328,13,28,Midday Lunch
+1329,13,29,Midday Lunch
+1330,13,30,Midday Lunch
+1331,13,31,Midday Lunch
+1332,13,32,Midday Lunch
+1333,13,33,Midday Lunch
+1334,13,34,Midday Lunch
+1335,13,35,Midday Lunch
+1336,13,36,Midday Lunch
+1337,13,37,Midday Lunch
+1338,13,38,Midday Lunch
+1339,13,39,Midday Lunch
+1340,13,40,Midday Lunch
+1341,13,41,Midday Lunch
+1342,13,42,Midday Lunch
+1343,13,43,Midday Lunch
+1344,13,44,Midday Lunch
+1345,13,45,Midday Lunch
+1346,13,46,Midday Lunch
+1347,13,47,Midday Lunch
+1348,13,48,Midday Lunch
+1349,13,49,Midday Lunch
+1350,13,50,Midday Lunch
+1351,13,51,Midday Lunch
+1352,13,52,Midday Lunch
+1353,13,53,Midday Lunch
+1354,13,54,Midday Lunch
+1355,13,55,Midday Lunch
+1356,13,56,Midday Lunch
+1357,13,57,Midday Lunch
+1358,13,58,Midday Lunch
+1359,13,59,Midday Lunch
+1400,14,0,Afternoon Coffee Peak
+1401,14,1,Afternoon Coffee Peak
+1402,14,2,Afternoon Coffee Peak
+1403,14,3,Afternoon Coffee Peak
+1404,14,4,Afternoon Coffee Peak
+1405,14,5,Afternoon Coffee Peak
+1406,14,6,Afternoon Coffee Peak
+1407,14,7,Afternoon Coffee Peak
+1408,14,8,Afternoon Coffee Peak
+1409,14,9,Afternoon Coffee Peak
+1410,14,10,Afternoon Coffee Peak
+1411,14,11,Afternoon Coffee Peak
+1412,14,12,Afternoon Coffee Peak
+1413,14,13,Afternoon Coffee Peak
+1414,14,14,Afternoon Coffee Peak
+1415,14,15,Afternoon Coffee Peak
+1416,14,16,Afternoon Coffee Peak
+1417,14,17,Afternoon Coffee Peak
+1418,14,18,Afternoon Coffee Peak
+1419,14,19,Afternoon Coffee Peak
+1420,14,20,Afternoon Coffee Peak
+1421,14,21,Afternoon Coffee Peak
+1422,14,22,Afternoon Coffee Peak
+1423,14,23,Afternoon Coffee Peak
+1424,14,24,Afternoon Coffee Peak
+1425,14,25,Afternoon Coffee Peak
+1426,14,26,Afternoon Coffee Peak
+1427,14,27,Afternoon Coffee Peak
+1428,14,28,Afternoon Coffee Peak
+1429,14,29,Afternoon Coffee Peak
+1430,14,30,Afternoon Coffee Peak
+1431,14,31,Afternoon Coffee Peak
+1432,14,32,Afternoon Coffee Peak
+1433,14,33,Afternoon Coffee Peak
+1434,14,34,Afternoon Coffee Peak
+1435,14,35,Afternoon Coffee Peak
+1436,14,36,Afternoon Coffee Peak
+1437,14,37,Afternoon Coffee Peak
+1438,14,38,Afternoon Coffee Peak
+1439,14,39,Afternoon Coffee Peak
+1440,14,40,Afternoon Coffee Peak
+1441,14,41,Afternoon Coffee Peak
+1442,14,42,Afternoon Coffee Peak
+1443,14,43,Afternoon Coffee Peak
+1444,14,44,Afternoon Coffee Peak
+1445,14,45,Afternoon Coffee Peak
+1446,14,46,Afternoon Coffee Peak
+1447,14,47,Afternoon Coffee Peak
+1448,14,48,Afternoon Coffee Peak
+1449,14,49,Afternoon Coffee Peak
+1450,14,50,Afternoon Coffee Peak
+1451,14,51,Afternoon Coffee Peak
+1452,14,52,Afternoon Coffee Peak
+1453,14,53,Afternoon Coffee Peak
+1454,14,54,Afternoon Coffee Peak
+1455,14,55,Afternoon Coffee Peak
+1456,14,56,Afternoon Coffee Peak
+1457,14,57,Afternoon Coffee Peak
+1458,14,58,Afternoon Coffee Peak
+1459,14,59,Afternoon Coffee Peak
+1500,15,0,Afternoon Coffee Peak
+1501,15,1,Afternoon Coffee Peak
+1502,15,2,Afternoon Coffee Peak
+1503,15,3,Afternoon Coffee Peak
+1504,15,4,Afternoon Coffee Peak
+1505,15,5,Afternoon Coffee Peak
+1506,15,6,Afternoon Coffee Peak
+1507,15,7,Afternoon Coffee Peak
+1508,15,8,Afternoon Coffee Peak
+1509,15,9,Afternoon Coffee Peak
+1510,15,10,Afternoon Coffee Peak
+1511,15,11,Afternoon Coffee Peak
+1512,15,12,Afternoon Coffee Peak
+1513,15,13,Afternoon Coffee Peak
+1514,15,14,Afternoon Coffee Peak
+1515,15,15,Afternoon Coffee Peak
+1516,15,16,Afternoon Coffee Peak
+1517,15,17,Afternoon Coffee Peak
+1518,15,18,Afternoon Coffee Peak
+1519,15,19,Afternoon Coffee Peak
+1520,15,20,Afternoon Coffee Peak
+1521,15,21,Afternoon Coffee Peak
+1522,15,22,Afternoon Coffee Peak
+1523,15,23,Afternoon Coffee Peak
+1524,15,24,Afternoon Coffee Peak
+1525,15,25,Afternoon Coffee Peak
+1526,15,26,Afternoon Coffee Peak
+1527,15,27,Afternoon Coffee Peak
+1528,15,28,Afternoon Coffee Peak
+1529,15,29,Afternoon Coffee Peak
+1530,15,30,Afternoon Coffee Peak
+1531,15,31,Afternoon Coffee Peak
+1532,15,32,Afternoon Coffee Peak
+1533,15,33,Afternoon Coffee Peak
+1534,15,34,Afternoon Coffee Peak
+1535,15,35,Afternoon Coffee Peak
+1536,15,36,Afternoon Coffee Peak
+1537,15,37,Afternoon Coffee Peak
+1538,15,38,Afternoon Coffee Peak
+1539,15,39,Afternoon Coffee Peak
+1540,15,40,Afternoon Coffee Peak
+1541,15,41,Afternoon Coffee Peak
+1542,15,42,Afternoon Coffee Peak
+1543,15,43,Afternoon Coffee Peak
+1544,15,44,Afternoon Coffee Peak
+1545,15,45,Afternoon Coffee Peak
+1546,15,46,Afternoon Coffee Peak
+1547,15,47,Afternoon Coffee Peak
+1548,15,48,Afternoon Coffee Peak
+1549,15,49,Afternoon Coffee Peak
+1550,15,50,Afternoon Coffee Peak
+1551,15,51,Afternoon Coffee Peak
+1552,15,52,Afternoon Coffee Peak
+1553,15,53,Afternoon Coffee Peak
+1554,15,54,Afternoon Coffee Peak
+1555,15,55,Afternoon Coffee Peak
+1556,15,56,Afternoon Coffee Peak
+1557,15,57,Afternoon Coffee Peak
+1558,15,58,Afternoon Coffee Peak
+1559,15,59,Afternoon Coffee Peak
+1600,16,0,Afternoon Coffee Peak
+1601,16,1,Afternoon Coffee Peak
+1602,16,2,Afternoon Coffee Peak
+1603,16,3,Afternoon Coffee Peak
+1604,16,4,Afternoon Coffee Peak
+1605,16,5,Afternoon Coffee Peak
+1606,16,6,Afternoon Coffee Peak
+1607,16,7,Afternoon Coffee Peak
+1608,16,8,Afternoon Coffee Peak
+1609,16,9,Afternoon Coffee Peak
+1610,16,10,Afternoon Coffee Peak
+1611,16,11,Afternoon Coffee Peak
+1612,16,12,Afternoon Coffee Peak
+1613,16,13,Afternoon Coffee Peak
+1614,16,14,Afternoon Coffee Peak
+1615,16,15,Afternoon Coffee Peak
+1616,16,16,Afternoon Coffee Peak
+1617,16,17,Afternoon Coffee Peak
+1618,16,18,Afternoon Coffee Peak
+1619,16,19,Afternoon Coffee Peak
+1620,16,20,Afternoon Coffee Peak
+1621,16,21,Afternoon Coffee Peak
+1622,16,22,Afternoon Coffee Peak
+1623,16,23,Afternoon Coffee Peak
+1624,16,24,Afternoon Coffee Peak
+1625,16,25,Afternoon Coffee Peak
+1626,16,26,Afternoon Coffee Peak
+1627,16,27,Afternoon Coffee Peak
+1628,16,28,Afternoon Coffee Peak
+1629,16,29,Afternoon Coffee Peak
+1630,16,30,Afternoon Coffee Peak
+1631,16,31,Afternoon Coffee Peak
+1632,16,32,Afternoon Coffee Peak
+1633,16,33,Afternoon Coffee Peak
+1634,16,34,Afternoon Coffee Peak
+1635,16,35,Afternoon Coffee Peak
+1636,16,36,Afternoon Coffee Peak
+1637,16,37,Afternoon Coffee Peak
+1638,16,38,Afternoon Coffee Peak
+1639,16,39,Afternoon Coffee Peak
+1640,16,40,Afternoon Coffee Peak
+1641,16,41,Afternoon Coffee Peak
+1642,16,42,Afternoon Coffee Peak
+1643,16,43,Afternoon Coffee Peak
+1644,16,44,Afternoon Coffee Peak
+1645,16,45,Afternoon Coffee Peak
+1646,16,46,Afternoon Coffee Peak
+1647,16,47,Afternoon Coffee Peak
+1648,16,48,Afternoon Coffee Peak
+1649,16,49,Afternoon Coffee Peak
+1650,16,50,Afternoon Coffee Peak
+1651,16,51,Afternoon Coffee Peak
+1652,16,52,Afternoon Coffee Peak
+1653,16,53,Afternoon Coffee Peak
+1654,16,54,Afternoon Coffee Peak
+1655,16,55,Afternoon Coffee Peak
+1656,16,56,Afternoon Coffee Peak
+1657,16,57,Afternoon Coffee Peak
+1658,16,58,Afternoon Coffee Peak
+1659,16,59,Afternoon Coffee Peak
+1700,17,0,Afternoon Coffee Peak
+1701,17,1,Afternoon Coffee Peak
+1702,17,2,Afternoon Coffee Peak
+1703,17,3,Afternoon Coffee Peak
+1704,17,4,Afternoon Coffee Peak
+1705,17,5,Afternoon Coffee Peak
+1706,17,6,Afternoon Coffee Peak
+1707,17,7,Afternoon Coffee Peak
+1708,17,8,Afternoon Coffee Peak
+1709,17,9,Afternoon Coffee Peak
+1710,17,10,Afternoon Coffee Peak
+1711,17,11,Afternoon Coffee Peak
+1712,17,12,Afternoon Coffee Peak
+1713,17,13,Afternoon Coffee Peak
+1714,17,14,Afternoon Coffee Peak
+1715,17,15,Afternoon Coffee Peak
+1716,17,16,Afternoon Coffee Peak
+1717,17,17,Afternoon Coffee Peak
+1718,17,18,Afternoon Coffee Peak
+1719,17,19,Afternoon Coffee Peak
+1720,17,20,Afternoon Coffee Peak
+1721,17,21,Afternoon Coffee Peak
+1722,17,22,Afternoon Coffee Peak
+1723,17,23,Afternoon Coffee Peak
+1724,17,24,Afternoon Coffee Peak
+1725,17,25,Afternoon Coffee Peak
+1726,17,26,Afternoon Coffee Peak
+1727,17,27,Afternoon Coffee Peak
+1728,17,28,Afternoon Coffee Peak
+1729,17,29,Afternoon Coffee Peak
+1730,17,30,Afternoon Coffee Peak
+1731,17,31,Afternoon Coffee Peak
+1732,17,32,Afternoon Coffee Peak
+1733,17,33,Afternoon Coffee Peak
+1734,17,34,Afternoon Coffee Peak
+1735,17,35,Afternoon Coffee Peak
+1736,17,36,Afternoon Coffee Peak
+1737,17,37,Afternoon Coffee Peak
+1738,17,38,Afternoon Coffee Peak
+1739,17,39,Afternoon Coffee Peak
+1740,17,40,Afternoon Coffee Peak
+1741,17,41,Afternoon Coffee Peak
+1742,17,42,Afternoon Coffee Peak
+1743,17,43,Afternoon Coffee Peak
+1744,17,44,Afternoon Coffee Peak
+1745,17,45,Afternoon Coffee Peak
+1746,17,46,Afternoon Coffee Peak
+1747,17,47,Afternoon Coffee Peak
+1748,17,48,Afternoon Coffee Peak
+1749,17,49,Afternoon Coffee Peak
+1750,17,50,Afternoon Coffee Peak
+1751,17,51,Afternoon Coffee Peak
+1752,17,52,Afternoon Coffee Peak
+1753,17,53,Afternoon Coffee Peak
+1754,17,54,Afternoon Coffee Peak
+1755,17,55,Afternoon Coffee Peak
+1756,17,56,Afternoon Coffee Peak
+1757,17,57,Afternoon Coffee Peak
+1758,17,58,Afternoon Coffee Peak
+1759,17,59,Afternoon Coffee Peak
+1800,18,0,Afternoon Coffee Peak
+1801,18,1,Afternoon Coffee Peak
+1802,18,2,Afternoon Coffee Peak
+1803,18,3,Afternoon Coffee Peak
+1804,18,4,Afternoon Coffee Peak
+1805,18,5,Afternoon Coffee Peak
+1806,18,6,Afternoon Coffee Peak
+1807,18,7,Afternoon Coffee Peak
+1808,18,8,Afternoon Coffee Peak
+1809,18,9,Afternoon Coffee Peak
+1810,18,10,Afternoon Coffee Peak
+1811,18,11,Afternoon Coffee Peak
+1812,18,12,Afternoon Coffee Peak
+1813,18,13,Afternoon Coffee Peak
+1814,18,14,Afternoon Coffee Peak
+1815,18,15,Afternoon Coffee Peak
+1816,18,16,Afternoon Coffee Peak
+1817,18,17,Afternoon Coffee Peak
+1818,18,18,Afternoon Coffee Peak
+1819,18,19,Afternoon Coffee Peak
+1820,18,20,Afternoon Coffee Peak
+1821,18,21,Afternoon Coffee Peak
+1822,18,22,Afternoon Coffee Peak
+1823,18,23,Afternoon Coffee Peak
+1824,18,24,Afternoon Coffee Peak
+1825,18,25,Afternoon Coffee Peak
+1826,18,26,Afternoon Coffee Peak
+1827,18,27,Afternoon Coffee Peak
+1828,18,28,Afternoon Coffee Peak
+1829,18,29,Afternoon Coffee Peak
+1830,18,30,Afternoon Coffee Peak
+1831,18,31,Afternoon Coffee Peak
+1832,18,32,Afternoon Coffee Peak
+1833,18,33,Afternoon Coffee Peak
+1834,18,34,Afternoon Coffee Peak
+1835,18,35,Afternoon Coffee Peak
+1836,18,36,Afternoon Coffee Peak
+1837,18,37,Afternoon Coffee Peak
+1838,18,38,Afternoon Coffee Peak
+1839,18,39,Afternoon Coffee Peak
+1840,18,40,Afternoon Coffee Peak
+1841,18,41,Afternoon Coffee Peak
+1842,18,42,Afternoon Coffee Peak
+1843,18,43,Afternoon Coffee Peak
+1844,18,44,Afternoon Coffee Peak
+1845,18,45,Afternoon Coffee Peak
+1846,18,46,Afternoon Coffee Peak
+1847,18,47,Afternoon Coffee Peak
+1848,18,48,Afternoon Coffee Peak
+1849,18,49,Afternoon Coffee Peak
+1850,18,50,Afternoon Coffee Peak
+1851,18,51,Afternoon Coffee Peak
+1852,18,52,Afternoon Coffee Peak
+1853,18,53,Afternoon Coffee Peak
+1854,18,54,Afternoon Coffee Peak
+1855,18,55,Afternoon Coffee Peak
+1856,18,56,Afternoon Coffee Peak
+1857,18,57,Afternoon Coffee Peak
+1858,18,58,Afternoon Coffee Peak
+1859,18,59,Afternoon Coffee Peak
+1900,19,0,Evening Social
+1901,19,1,Evening Social
+1902,19,2,Evening Social
+1903,19,3,Evening Social
+1904,19,4,Evening Social
+1905,19,5,Evening Social
+1906,19,6,Evening Social
+1907,19,7,Evening Social
+1908,19,8,Evening Social
+1909,19,9,Evening Social
+1910,19,10,Evening Social
+1911,19,11,Evening Social
+1912,19,12,Evening Social
+1913,19,13,Evening Social
+1914,19,14,Evening Social
+1915,19,15,Evening Social
+1916,19,16,Evening Social
+1917,19,17,Evening Social
+1918,19,18,Evening Social
+1919,19,19,Evening Social
+1920,19,20,Evening Social
+1921,19,21,Evening Social
+1922,19,22,Evening Social
+1923,19,23,Evening Social
+1924,19,24,Evening Social
+1925,19,25,Evening Social
+1926,19,26,Evening Social
+1927,19,27,Evening Social
+1928,19,28,Evening Social
+1929,19,29,Evening Social
+1930,19,30,Evening Social
+1931,19,31,Evening Social
+1932,19,32,Evening Social
+1933,19,33,Evening Social
+1934,19,34,Evening Social
+1935,19,35,Evening Social
+1936,19,36,Evening Social
+1937,19,37,Evening Social
+1938,19,38,Evening Social
+1939,19,39,Evening Social
+1940,19,40,Evening Social
+1941,19,41,Evening Social
+1942,19,42,Evening Social
+1943,19,43,Evening Social
+1944,19,44,Evening Social
+1945,19,45,Evening Social
+1946,19,46,Evening Social
+1947,19,47,Evening Social
+1948,19,48,Evening Social
+1949,19,49,Evening Social
+1950,19,50,Evening Social
+1951,19,51,Evening Social
+1952,19,52,Evening Social
+1953,19,53,Evening Social
+1954,19,54,Evening Social
+1955,19,55,Evening Social
+1956,19,56,Evening Social
+1957,19,57,Evening Social
+1958,19,58,Evening Social
+1959,19,59,Evening Social
+2000,20,0,Evening Social
+2001,20,1,Evening Social
+2002,20,2,Evening Social
+2003,20,3,Evening Social
+2004,20,4,Evening Social
+2005,20,5,Evening Social
+2006,20,6,Evening Social
+2007,20,7,Evening Social
+2008,20,8,Evening Social
+2009,20,9,Evening Social
+2010,20,10,Evening Social
+2011,20,11,Evening Social
+2012,20,12,Evening Social
+2013,20,13,Evening Social
+2014,20,14,Evening Social
+2015,20,15,Evening Social
+2016,20,16,Evening Social
+2017,20,17,Evening Social
+2018,20,18,Evening Social
+2019,20,19,Evening Social
+2020,20,20,Evening Social
+2021,20,21,Evening Social
+2022,20,22,Evening Social
+2023,20,23,Evening Social
+2024,20,24,Evening Social
+2025,20,25,Evening Social
+2026,20,26,Evening Social
+2027,20,27,Evening Social
+2028,20,28,Evening Social
+2029,20,29,Evening Social
+2030,20,30,Evening Social
+2031,20,31,Evening Social
+2032,20,32,Evening Social
+2033,20,33,Evening Social
+2034,20,34,Evening Social
+2035,20,35,Evening Social
+2036,20,36,Evening Social
+2037,20,37,Evening Social
+2038,20,38,Evening Social
+2039,20,39,Evening Social
+2040,20,40,Evening Social
+2041,20,41,Evening Social
+2042,20,42,Evening Social
+2043,20,43,Evening Social
+2044,20,44,Evening Social
+2045,20,45,Evening Social
+2046,20,46,Evening Social
+2047,20,47,Evening Social
+2048,20,48,Evening Social
+2049,20,49,Evening Social
+2050,20,50,Evening Social
+2051,20,51,Evening Social
+2052,20,52,Evening Social
+2053,20,53,Evening Social
+2054,20,54,Evening Social
+2055,20,55,Evening Social
+2056,20,56,Evening Social
+2057,20,57,Evening Social
+2058,20,58,Evening Social
+2059,20,59,Evening Social
+2100,21,0,Evening Social
+2101,21,1,Evening Social
+2102,21,2,Evening Social
+2103,21,3,Evening Social
+2104,21,4,Evening Social
+2105,21,5,Evening Social
+2106,21,6,Evening Social
+2107,21,7,Evening Social
+2108,21,8,Evening Social
+2109,21,9,Evening Social
+2110,21,10,Evening Social
+2111,21,11,Evening Social
+2112,21,12,Evening Social
+2113,21,13,Evening Social
+2114,21,14,Evening Social
+2115,21,15,Evening Social
+2116,21,16,Evening Social
+2117,21,17,Evening Social
+2118,21,18,Evening Social
+2119,21,19,Evening Social
+2120,21,20,Evening Social
+2121,21,21,Evening Social
+2122,21,22,Evening Social
+2123,21,23,Evening Social
+2124,21,24,Evening Social
+2125,21,25,Evening Social
+2126,21,26,Evening Social
+2127,21,27,Evening Social
+2128,21,28,Evening Social
+2129,21,29,Evening Social
+2130,21,30,Evening Social
+2131,21,31,Evening Social
+2132,21,32,Evening Social
+2133,21,33,Evening Social
+2134,21,34,Evening Social
+2135,21,35,Evening Social
+2136,21,36,Evening Social
+2137,21,37,Evening Social
+2138,21,38,Evening Social
+2139,21,39,Evening Social
+2140,21,40,Evening Social
+2141,21,41,Evening Social
+2142,21,42,Evening Social
+2143,21,43,Evening Social
+2144,21,44,Evening Social
+2145,21,45,Evening Social
+2146,21,46,Evening Social
+2147,21,47,Evening Social
+2148,21,48,Evening Social
+2149,21,49,Evening Social
+2150,21,50,Evening Social
+2151,21,51,Evening Social
+2152,21,52,Evening Social
+2153,21,53,Evening Social
+2154,21,54,Evening Social
+2155,21,55,Evening Social
+2156,21,56,Evening Social
+2157,21,57,Evening Social
+2158,21,58,Evening Social
+2159,21,59,Evening Social
+2200,22,0,Closed

@@ -1,0 +1,178 @@
+// =============================================================================
+// BARISTAS COFFEE SHOP — DAX MEASURES LIBRARY
+// Model: Fact_Sales + Dim_Date / Dim_Time / Dim_Store / Dim_Product /
+//        Dim_Payment / Dim_Channel (star schema, single-direction filters)
+// Prerequisite: Dim_Date is marked as the Power BI Date Table.
+// Organize all measures below inside a dedicated "_Measures" table.
+// =============================================================================
+
+
+// -----------------------------------------------------------------------------
+// 1. CORE KPIs
+// -----------------------------------------------------------------------------
+
+Total Revenue (TND) =
+SUM ( Fact_Sales[LineRevenueTND] )
+
+Total Cost (TND) =
+SUM ( Fact_Sales[LineCostTND] )
+
+Total Profit (TND) =
+SUM ( Fact_Sales[LineProfitTND] )
+
+Total Transactions =
+DISTINCTCOUNT ( Fact_Sales[TransactionID] )
+
+Total Units Sold =
+SUM ( Fact_Sales[Quantity] )
+
+// Average Order Value = revenue per unique transaction (basket), not per line
+Average Order Value (TND) =
+DIVIDE (
+    [Total Revenue (TND)],
+    [Total Transactions],
+    0
+)
+
+Gross Margin % =
+DIVIDE (
+    [Total Profit (TND)],
+    [Total Revenue (TND)],
+    0
+)
+
+
+// -----------------------------------------------------------------------------
+// 2. TIME INTELLIGENCE
+// Requires Dim_Date marked as Date Table; relationship Dim_Date[DateKey] -> Fact_Sales[DateKey]
+// -----------------------------------------------------------------------------
+
+Prior Month Sales (TND) =
+CALCULATE (
+    [Total Revenue (TND)],
+    DATEADD ( Dim_Date[Date], -1, MONTH )
+)
+
+MoM Growth % =
+VAR CurrentMonthSales = [Total Revenue (TND)]
+VAR PriorMonthSales = [Prior Month Sales (TND)]
+RETURN
+    DIVIDE (
+        CurrentMonthSales - PriorMonthSales,
+        PriorMonthSales,
+        BLANK ()
+    )
+
+YTD Sales (TND) =
+TOTALYTD (
+    [Total Revenue (TND)],
+    Dim_Date[Date]
+)
+
+Prior Year Sales (TND) =
+CALCULATE (
+    [Total Revenue (TND)],
+    SAMEPERIODLASTYEAR ( Dim_Date[Date] )
+)
+
+YoY Growth % =
+VAR CurrentSales = [Total Revenue (TND)]
+VAR PriorYearSales = [Prior Year Sales (TND)]
+RETURN
+    DIVIDE (
+        CurrentSales - PriorYearSales,
+        PriorYearSales,
+        BLANK ()
+    )
+
+Rolling 7-Day Revenue (TND) =
+CALCULATE (
+    [Total Revenue (TND)],
+    DATESINPERIOD ( Dim_Date[Date], MAX ( Dim_Date[Date] ), -7, DAY )
+)
+
+
+// -----------------------------------------------------------------------------
+// 3. ADVANCED BUSINESS LOGIC
+// -----------------------------------------------------------------------------
+
+// Peak Sales Hour — the Dim_Time[Hour] with the highest revenue in current filter context
+Peak Sales Hour =
+VAR HourlyRevenue =
+    ADDCOLUMNS (
+        VALUES ( Dim_Time[Hour] ),
+        "@Revenue", [Total Revenue (TND)]
+    )
+VAR TopHour =
+    TOPN ( 1, HourlyRevenue, [@Revenue], DESC )
+RETURN
+    MAXX ( TopHour, Dim_Time[Hour] )
+
+// Digital vs Cash Ratio % — share of revenue paid via non-cash methods
+// (Carte Bancaire, Flouci, D17 — grouped as Dim_Payment[PaymentType] = "Digital")
+Digital vs Cash Ratio % =
+VAR DigitalRevenue =
+    CALCULATE (
+        [Total Revenue (TND)],
+        Dim_Payment[PaymentType] = "Digital"
+    )
+RETURN
+    DIVIDE (
+        DigitalRevenue,
+        [Total Revenue (TND)],
+        0
+    )
+
+// Delivery vs In-Store Revenue Mix % — share of revenue from delivery platforms
+// (Glovo, Jumia Food — grouped as Dim_Channel[ChannelGroup] = "Delivery")
+Delivery Revenue Mix % =
+VAR DeliveryRevenue =
+    CALCULATE (
+        [Total Revenue (TND)],
+        Dim_Channel[ChannelGroup] = "Delivery"
+    )
+RETURN
+    DIVIDE (
+        DeliveryRevenue,
+        [Total Revenue (TND)],
+        0
+    )
+
+In-Store Revenue Mix % =
+1 - [Delivery Revenue Mix %]
+
+// Pastry Attachment Rate % — % of transactions that included at least 1 Bakery item
+// Uses a transaction-level virtual table so basket composition is evaluated
+// independently of whatever product filter is active on the visual.
+Pastry Attachment Rate % =
+VAR TransactionsWithPastry =
+    CALCULATE (
+        DISTINCTCOUNT ( Fact_Sales[TransactionID] ),
+        FILTER (
+            ALL ( Dim_Product ),
+            Dim_Product[Category] = "Bakery & Pastries"
+        )
+    )
+RETURN
+    DIVIDE (
+        TransactionsWithPastry,
+        [Total Transactions],
+        0
+    )
+
+// Top Branch (TND) — store name with the highest revenue, for a KPI card
+Top Branch =
+VAR StoreRevenue =
+    ADDCOLUMNS (
+        VALUES ( Dim_Store[StoreName] ),
+        "@Revenue", [Total Revenue (TND)]
+    )
+VAR TopStore =
+    TOPN ( 1, StoreRevenue, [@Revenue], DESC )
+RETURN
+    MAXX ( TopStore, Dim_Store[StoreName] )
+
+// High-Value Order Flag — used for conditional formatting on the transaction table
+// (order-level, so wrap the underlying visual/table at TransactionID grain)
+Is High Value Order (>30 TND) =
+IF ( [Total Revenue (TND)] > 30, "High Value", "Standard" )

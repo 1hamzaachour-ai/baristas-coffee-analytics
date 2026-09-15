@@ -1,0 +1,1212 @@
+<title>Baristas Coffee Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700;1,800;1,900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    color-scheme: light;
+    --bg: #faf8f4;
+    --page-plane: #f0ece3;
+    --canvas-bg: #f3f2f1;
+    --surface: #ffffff;
+    --surface-raised: #ffffff;
+    --text-primary: #161412;
+    --text-secondary: #5c5650;
+    --muted: #928c83;
+    --border: rgba(22,20,18,0.12);
+    --gridline: #e7e2d8;
+    --accent: #9a5027;
+    --accent-strong: #7c3f1d;
+    --accent-ink: #fff8f2;
+    --accent-wash: rgba(154,80,39,0.13);
+    --good: #0ca30c;
+    --critical: #d03b3b;
+    --band-morning: rgba(42,120,214,0.09);
+    --band-afternoon: rgba(235,104,52,0.10);
+
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --series-3: #1baf7a;
+    --series-4: #eda100;
+    --series-5: #e87ba4;
+    --series-6: #008300;
+    --series-7: #4a3aa7;
+    --series-8: #e34948;
+
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --bg: #141210;
+      --page-plane: #0f0e0c;
+      --canvas-bg: #1f1f1e;
+      --surface: #1c1a17;
+      --surface-raised: #24211c;
+      --text-primary: #f6f3ee;
+      --text-secondary: #cbc6bd;
+      --muted: #928c81;
+      --border: rgba(246,243,238,0.12);
+      --gridline: #302c25;
+      --accent: #d97b45;
+      --accent-strong: #e8925f;
+      --accent-ink: #221207;
+      --accent-wash: rgba(217,123,69,0.18);
+      --good: #0ca30c;
+      --critical: #e66767;
+      --band-morning: rgba(57,135,229,0.14);
+      --band-afternoon: rgba(217,89,38,0.16);
+
+      --series-1: #3987e5;
+      --series-2: #d95926;
+      --series-3: #199e70;
+      --series-4: #c98500;
+      --series-5: #d55181;
+      --series-6: #1fae1f;
+      --series-7: #9085e9;
+      --series-8: #e66767;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --bg: #141210;
+    --page-plane: #0f0e0c;
+    --canvas-bg: #1f1f1e;
+    --surface: #1c1a17;
+    --surface-raised: #24211c;
+    --text-primary: #f6f3ee;
+    --text-secondary: #cbc6bd;
+    --muted: #928c81;
+    --border: rgba(246,243,238,0.12);
+    --gridline: #302c25;
+    --accent: #d97b45;
+    --accent-strong: #e8925f;
+    --accent-ink: #221207;
+    --accent-wash: rgba(217,123,69,0.18);
+    --good: #0ca30c;
+    --critical: #e66767;
+    --band-morning: rgba(57,135,229,0.14);
+    --band-afternoon: rgba(217,89,38,0.16);
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --series-6: #1fae1f;
+    --series-7: #9085e9;
+    --series-8: #e66767;
+  }
+
+  *{ box-sizing: border-box; }
+  html, body{ margin:0; }
+  body{
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: "Segoe UI", "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  [hidden]{ display:none !important; }
+  img{ max-width:100%; }
+
+  .display{ font-family: "Playfair Display", Georgia, serif; font-style: italic; }
+  .tnum{ font-variant-numeric: tabular-nums; }
+
+  a{ color: var(--accent); }
+
+  /* ---------- Power BI-style report shell ---------- */
+  .app{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .pbi-header{
+    flex: none;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding: 10px 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .brand{ display:flex; align-items:center; gap:11px; }
+  .brand-mark{
+    width: 34px; height:34px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--accent);
+    display:flex; align-items:center; justify-content:center;
+    color: var(--accent-ink);
+    font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700;
+    font-size:18px; line-height:1;
+  }
+  .brand-text .name{ font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:18px; line-height:1.05; }
+  .brand-text .sub{ font-size:9.5px; color: var(--muted); letter-spacing: .12em; font-weight:600; }
+  .pbi-header-meta{ font-size:11px; color: var(--muted); text-align:right; line-height:1.5; }
+  .pbi-header-meta b{ color: var(--text-secondary); }
+
+  /* ---------- Slicer row ---------- */
+  .filterbar{
+    flex: none;
+    background: var(--page-plane);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px;
+    display:flex; flex-wrap:wrap; align-items:stretch; gap: 10px;
+  }
+  .slicer{
+    background: var(--surface); border:1px solid var(--border); border-radius: 3px;
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  .slicer-head{
+    font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; font-weight:700;
+    color: var(--text-secondary); padding: 5px 10px; border-bottom:1px solid var(--border);
+    background: color-mix(in srgb, var(--page-plane) 55%, var(--surface));
+  }
+  .slicer-body{ display:flex; align-items:center; flex-wrap:wrap; gap:6px; padding: 7px 9px; }
+  .fgroup{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  input[type="date"]{
+    font: inherit; color: var(--text-primary); background: var(--surface);
+    border:1px solid var(--border); border-radius:3px; padding:4px 7px;
+    font-size: 12px;
+  }
+  .chip{
+    font-size: 12px; padding: 4px 10px; border-radius: 3px;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--text-secondary); cursor:pointer; user-select:none;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .chip .swatch{ width:8px; height:8px; border-radius:50%; }
+  .chip.on{ background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight:600; }
+  .chip.on .swatch{ box-shadow: 0 0 0 2px var(--accent-ink); }
+  .linkbtn{
+    align-self:center;
+    font-size:12px; color: var(--accent); background:none; border:none; cursor:pointer;
+    font-weight:600; padding: 4px 2px;
+  }
+  .spacer{ flex: 1 1 auto; }
+  .rowcount{ font-size:12px; color: var(--muted); align-self:center; }
+  .date-arrow{ color: var(--muted); }
+
+  /* ---------- Canvas + page tabs ---------- */
+  .pbi-canvas{
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    background: var(--canvas-bg);
+  }
+  .pbi-pagetabs{
+    flex: none;
+    display:flex; align-items:stretch; gap:2px;
+    background: var(--page-plane);
+    border-top: 1px solid var(--border);
+    padding: 0 8px;
+    overflow-x: auto;
+  }
+  .navtab{
+    display:flex; align-items:center;
+    padding: 8px 16px; border-radius: 0;
+    color: var(--text-secondary); text-decoration:none;
+    font-size: 12.5px; font-weight: 500;
+    cursor: pointer; border: none; border-top: 2px solid transparent;
+    background: none;
+    text-align: left; white-space:nowrap;
+  }
+  .navtab .dot{ display:none; }
+  .navtab:hover{ color: var(--text-primary); background: color-mix(in srgb, var(--canvas-bg) 45%, transparent); }
+  .navtab.active{ background: var(--canvas-bg); color: var(--accent); border-top-color: var(--accent); font-weight:700; }
+
+  /* ---------- Pages / content ---------- */
+  .page{ padding: 20px 24px 48px; display:flex; flex-direction:column; gap:20px; }
+  .pagehead{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .pagehead h1{ font-family:"Playfair Display",Georgia,serif; font-style:italic; font-weight:700; font-size:26px; margin:0; }
+  .pagehead p{ margin:3px 0 0; color:var(--text-secondary); font-size:13px; }
+
+  .kpirow{ display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; }
+  .kpi{
+    background: var(--surface); border:1px solid var(--border); border-radius: 3px;
+    padding: 13px 15px;
+    position: relative; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  }
+  .kpi::before{
+    content:""; position:absolute; left:0; top:0; right:0; height:3px;
+    background: var(--accent);
+  }
+  .kpi .icon{ width:22px; height:22px; color: var(--accent); }
+  .kpi .icon path, .kpi .icon circle, .kpi .icon rect{ fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+  .kpi .label{ font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-weight:600; margin-top:8px; }
+  .kpi .value{ font-family:"IBM Plex Sans",sans-serif; font-size: 25px; font-weight:700; margin-top:5px; letter-spacing:-0.01em; }
+  .kpi .delta{ font-size:12px; margin-top:5px; font-weight:600; }
+  .kpi .delta.up{ color: var(--good); }
+  .kpi .delta.down{ color: var(--critical); }
+  .kpi .delta.flat{ color: var(--muted); }
+
+  .grid2{ display:grid; grid-template-columns: 1.3fr 1fr; gap:14px; }
+  .grid3{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+  .panel{
+    background: var(--surface); border:1px solid var(--border); border-radius: 3px;
+    padding: 15px 17px;
+    min-width: 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  }
+  .panel h2{ font-size:13.5px; font-weight:600; margin:0 0 2px; }
+  .panel .cap{ font-size:11.5px; color:var(--muted); margin: 0 0 12px; }
+  .chartwrap{ position:relative; height: 260px; }
+  .chartwrap.tall{ height: 340px; }
+  .legend-note{ font-size:11px; color:var(--muted); margin-top:8px; }
+
+  .badge{
+    font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:999px;
+    display:inline-flex; align-items:center; gap:4px; letter-spacing:.02em;
+  }
+  .badge.hv{ background: var(--accent-wash); color: var(--accent-strong); }
+  .badge.delivery{ background: color-mix(in srgb, var(--series-3) 18%, transparent); color: var(--series-3); }
+  .badge.instore{ background: var(--accent-wash); color: var(--accent-strong); }
+
+  table{ width:100%; border-collapse:collapse; font-size:12.8px; }
+  thead th{
+    text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--muted); font-weight:600; padding: 8px 10px; border-bottom:1px solid var(--border);
+    cursor:pointer; white-space:nowrap;
+  }
+  thead th:hover{ color:var(--text-primary); }
+  tbody td{ padding: 8px 10px; border-bottom:1px solid var(--border); }
+  tbody tr:hover{ background: var(--page-plane); }
+  tbody tr.hv td:first-child{ box-shadow: inset 3px 0 0 var(--accent); }
+  .searchrow{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
+  .search{
+    font: inherit; font-size:13px; padding:7px 11px; border-radius:8px;
+    border:1px solid var(--border); background: var(--surface-raised); color:var(--text-primary);
+    min-width: 220px; flex: 1 1 220px;
+  }
+  .tablewrap{ overflow-x:auto; }
+  .pager{ display:flex; align-items:center; gap:10px; margin-top:12px; font-size:12.5px; color:var(--text-secondary); }
+  .pager button{
+    font: inherit; font-size:12px; padding:5px 10px; border-radius:7px;
+    border:1px solid var(--border); background:var(--surface-raised); color:var(--text-primary); cursor:pointer;
+  }
+  .pager button:disabled{ opacity:.4; cursor:default; }
+
+  .empty{ padding: 30px; text-align:center; color:var(--muted); font-size:13px; }
+
+  /* mobile */
+  @media (max-width: 860px){
+    .pbi-header{ padding: 8px 14px; }
+    .pbi-header-meta{ display:none; }
+    .kpirow{ grid-template-columns: repeat(2,1fr); }
+    .grid2, .grid3{ grid-template-columns: 1fr; }
+    .filterbar{ padding: 8px 14px; }
+    .page{ padding: 16px 14px 40px; }
+    .navtab{ padding: 8px 11px; font-size:11.5px; }
+  }
+</style>
+
+<div class="app">
+  <header class="pbi-header">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">B</div>
+      <div class="brand-text">
+        <div class="name">Baristas Coffee Shop</div>
+        <div class="sub">SALES ANALYSIS · TUNISIA</div>
+      </div>
+    </div>
+    <div class="pbi-header-meta">
+      Synthetic dataset &middot; <b id="footRange">–</b><br>
+      <span id="footTx">–</span> transactions modeled
+    </div>
+  </header>
+
+  <div class="filterbar">
+    <div class="slicer">
+      <div class="slicer-head">Date</div>
+      <div class="slicer-body">
+        <input type="date" id="dateFrom" aria-label="From date">
+        <span class="date-arrow">&rarr;</span>
+        <input type="date" id="dateTo" aria-label="To date">
+      </div>
+    </div>
+    <div class="slicer">
+      <div class="slicer-head">Store</div>
+      <div class="slicer-body" id="storeChips"></div>
+    </div>
+    <div class="slicer">
+      <div class="slicer-head">Channel</div>
+      <div class="slicer-body" id="channelChips"></div>
+    </div>
+    <button type="button" class="linkbtn" id="resetFilters">Clear filters</button>
+    <div class="spacer"></div>
+    <div class="rowcount" id="rowcount">–</div>
+  </div>
+
+  <main class="pbi-canvas">
+    <!-- PAGE 1 : EXECUTIVE OVERVIEW -->
+    <section class="page" id="page-overview">
+      <div class="pagehead">
+        <div>
+          <h1>Executive Sales Overview</h1>
+          <p>Revenue, traffic and channel mix across all Baristas branches.</p>
+        </div>
+      </div>
+
+      <div class="kpirow">
+        <div class="kpi">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 19V13M11 19V9M17 19V5"/><path d="M4 19h16"/></svg>
+          <div class="label">Total Revenue</div><div class="value tnum" id="kpiRevenue">–</div><div class="delta tnum" id="kpiRevenueDelta"></div>
+        </div>
+        <div class="kpi">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 4h14l-1 13H6L5 4z"/><path d="M9 8v9M15 8v9"/><path d="M4 4l1.2-2h13.6L20 4"/></svg>
+          <div class="label">Total Orders</div><div class="value tnum" id="kpiOrders">–</div><div class="delta tnum" id="kpiOrdersDelta"></div>
+        </div>
+        <div class="kpi">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.2 15.3c.4 1 1.4 1.7 2.8 1.7 1.7 0 2.8-.9 2.8-2.1 0-3.1-5.6-1.4-5.6-4.4 0-1.2 1.1-2.1 2.8-2.1 1.4 0 2.4.6 2.8 1.7"/></svg>
+          <div class="label">Avg. Order Value</div><div class="value tnum" id="kpiAOV">–</div><div class="delta tnum" id="kpiAOVDelta"></div>
+        </div>
+        <div class="kpi">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 3c3.6 0 6.5 2.8 6.5 6.5 0 5-6.5 11-6.5 11S5.5 14.5 5.5 9.5C5.5 5.8 8.4 3 12 3z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+          <div class="label">Top Branch</div><div class="value" id="kpiTopBranch" style="font-size:18px;">–</div><div class="delta tnum" id="kpiTopBranchSub"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Hourly Sales — Morning Rush vs. Afternoon Coffee Peak</h2>
+        <p class="cap">Revenue by hour of day. Shaded bands mark the two named local traffic peaks.</p>
+        <div class="chartwrap tall"><canvas id="chartHourly"></canvas></div>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h2>Channel Distribution by Day-part</h2>
+          <p class="cap">Revenue by channel across the four traffic time slots.</p>
+          <div class="chartwrap"><canvas id="chartChannel"></canvas></div>
+        </div>
+        <div class="panel">
+          <h2>Payment Method Mix</h2>
+          <p class="cap">Share of revenue by payment method.</p>
+          <div class="chartwrap"><canvas id="chartPayment"></canvas></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Branch Performance</h2>
+        <p class="cap">Revenue by branch, colored by store format.</p>
+        <div class="chartwrap"><canvas id="chartBranch"></canvas></div>
+      </div>
+    </section>
+
+    <!-- PAGE 2 : MENU & PRODUCT PERFORMANCE -->
+    <section class="page" id="page-menu" hidden>
+      <div class="pagehead">
+        <div>
+          <h1>Menu &amp; Product Performance</h1>
+          <p>Margin, volume and category mix across the Baristas menu.</p>
+        </div>
+      </div>
+
+      <div class="grid3" style="grid-template-columns: 1fr 1fr;">
+        <div class="kpi"><div class="label">Pastry Attachment Rate</div><div class="value tnum" id="kpiPastry">–</div><div class="delta flat">of transactions include a bakery item</div></div>
+        <div class="kpi"><div class="label">Digital vs Cash Ratio</div><div class="value tnum" id="kpiDigital">–</div><div class="delta flat">of revenue paid non-cash</div></div>
+      </div>
+
+      <div class="panel">
+        <h2>Unit Margin (TND) vs. Volume Sold</h2>
+        <p class="cap">Each bubble is one menu item; size = total revenue. Dashed lines mark the network-average volume and margin. Hover a bubble for its category.</p>
+        <div class="chartwrap tall"><canvas id="chartScatter"></canvas></div>
+        <p class="legend-note">Quadrants: top-right = Stars (high margin &amp; volume) · bottom-right = Volume Drivers · top-left = High-Margin Niche · bottom-left = Review</p>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <h2>Category Revenue Breakdown</h2>
+          <p class="cap">Share of revenue by menu category.</p>
+          <div class="chartwrap"><canvas id="chartCategory"></canvas></div>
+        </div>
+        <div class="panel">
+          <h2>Top 10 Products by Revenue</h2>
+          <p class="cap">Ranked by total revenue in the current filter.</p>
+          <div class="chartwrap"><canvas id="chartTopProducts"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 : TRANSACTION AUDIT -->
+    <section class="page" id="page-audit" hidden>
+      <div class="pagehead">
+        <div>
+          <h1>Transaction Audit &amp; Search</h1>
+          <p>Order-level detail. Orders above 30 TND are flagged as high value.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="searchrow">
+          <input class="search" id="txSearch" placeholder="Search by Transaction ID or store name…">
+          <span class="rowcount" id="txCount">–</span>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-key="id">Transaction</th>
+                <th data-key="datetime">Date / Time</th>
+                <th data-key="store">Store</th>
+                <th data-key="channel">Channel</th>
+                <th data-key="payment">Payment</th>
+                <th data-key="items">Items</th>
+                <th data-key="revenue">Revenue (TND)</th>
+              </tr>
+            </thead>
+            <tbody id="txBody"></tbody>
+          </table>
+          <div class="empty" id="txEmpty" hidden>No transactions match the current filters.</div>
+        </div>
+        <div class="pager">
+          <button type="button" id="txPrev">&larr; Prev</button>
+          <span id="txPageLabel">Page 1</span>
+          <button type="button" id="txNext">Next &rarr;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="pbi-pagetabs" id="navtabs">
+    <button type="button" class="navtab active" data-page="overview">Executive Overview</button>
+    <button type="button" class="navtab" data-page="menu">Menu &amp; Product</button>
+    <button type="button" class="navtab" data-page="audit">Transaction Audit</button>
+  </nav>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  var DATA = window.BARISTAS_DATA;
+  var COLS = {};
+  DATA.meta.columns.forEach(function(name, i){ COLS[name] = i; });
+
+  var TIME_SLOTS = [
+    { name: "Morning Rush", start: 7*60, end: 10*60+30 },
+    { name: "Midday Lunch", start: 10*60+30, end: 14*60 },
+    { name: "Afternoon Coffee Peak", start: 14*60, end: 19*60 },
+    { name: "Evening Social", start: 19*60, end: 22*60 }
+  ];
+  var MORNING_PEAK = [8*60, 10*60+30];
+  var AFTERNOON_PEAK = [16*60+30, 19*60+30];
+
+  function timeSlotFor(minuteOfDay){
+    for (var i=0;i<TIME_SLOTS.length;i++){
+      if (minuteOfDay >= TIME_SLOTS[i].start && minuteOfDay < TIME_SLOTS[i].end) return TIME_SLOTS[i].name;
+    }
+    return "Closed";
+  }
+
+  function cssVar(name){
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  function dateKeyToDate(dk){
+    var s = String(dk);
+    return new Date(+s.slice(0,4), +s.slice(4,6)-1, +s.slice(6,8));
+  }
+  function dateKeyToISO(dk){
+    var s = String(dk);
+    return s.slice(0,4) + "-" + s.slice(4,6) + "-" + s.slice(6,8);
+  }
+  function isoToDateKey(iso){
+    return parseInt(iso.split("-").join(""), 10);
+  }
+  function fmtDateShort(dk){
+    var d = dateKeyToDate(dk);
+    return d.toLocaleDateString(undefined, { month:"short", day:"2-digit" });
+  }
+  function fmtTime(h,m){
+    return (h<10?"0":"")+h+":"+(m<10?"0":"")+m;
+  }
+  function fmtTND(x){
+    return x.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}) + " TND";
+  }
+  function fmtInt(x){ return x.toLocaleString(); }
+  function fmtPct(x){ return (x*100).toFixed(1) + "%"; }
+
+  // ---------------------------------------------------------------------
+  // Filter state
+  // ---------------------------------------------------------------------
+  var state = {
+    dateFrom: DATA.meta.minDateKey,
+    dateTo: DATA.meta.maxDateKey,
+    stores: new Set(),   // empty = all
+    channels: new Set(), // empty = all
+    page: "overview",
+    txSearch: "",
+    txSort: { key: "datetime", dir: -1 },
+    txPage: 0,
+    txPageSize: 25
+  };
+
+  var seriesColor = ["--series-1","--series-2","--series-3","--series-4","--series-5","--series-6","--series-7","--series-8"];
+
+  var CATEGORY_ORDER = ["Espresso & Classic Coffee","Cold Brew & Iced Coffee","Signature Frappes & Smoothies","Bakery & Pastries","Savory Snacks"];
+  var CATEGORY_SLOT = { "Espresso & Classic Coffee":0, "Cold Brew & Iced Coffee":2, "Signature Frappes & Smoothies":4, "Bakery & Pastries":1, "Savory Snacks":6 };
+  var PAYMENT_SLOT = {1:0, 2:1, 3:2, 4:3};      // PaymentKey -> series slot
+  var CHANNEL_SLOT = {1:0, 2:1, 3:2, 4:3};      // ChannelKey -> series slot
+  var STORETYPE_SLOT = { "Full Cafe":0, "Express":1 };
+
+  function colorFor(slotIndex){ return cssVar(seriesColor[slotIndex]); }
+
+  // ---------------------------------------------------------------------
+  // Filtering
+  // ---------------------------------------------------------------------
+  function getFilteredRows(){
+    var out = [];
+    var rows = DATA.rows;
+    var dF = state.dateFrom, dT = state.dateTo;
+    var stFilter = state.stores.size ? state.stores : null;
+    var chFilter = state.channels.size ? state.channels : null;
+    for (var i=0;i<rows.length;i++){
+      var r = rows[i];
+      var dk = r[COLS.dateKey];
+      if (dk < dF || dk > dT) continue;
+      if (stFilter && !stFilter.has(r[COLS.storeKey])) continue;
+      if (chFilter && !chFilter.has(r[COLS.channelKey])) continue;
+      out.push(r);
+    }
+    return out;
+  }
+
+  function groupByTransaction(rows){
+    var map = new Map();
+    for (var i=0;i<rows.length;i++){
+      var r = rows[i];
+      var tid = r[COLS.transactionId];
+      var t = map.get(tid);
+      if (!t){
+        t = {
+          id: tid, dateKey: r[COLS.dateKey], hour: r[COLS.hour], minute: r[COLS.minute],
+          storeKey: r[COLS.storeKey], channelKey: r[COLS.channelKey], paymentKey: r[COLS.paymentKey],
+          items: 0, revenue: 0, cost: 0, hasPastry: false
+        };
+        map.set(tid, t);
+      }
+      t.items += r[COLS.quantity];
+      t.revenue += r[COLS.revenue];
+      t.cost += r[COLS.cost];
+      var prod = DATA.products[r[COLS.productKey]];
+      if (prod.category === "Bakery & Pastries") t.hasPastry = true;
+    }
+    return Array.from(map.values());
+  }
+
+  // ---------------------------------------------------------------------
+  // Chart.js global config + custom plugins
+  // ---------------------------------------------------------------------
+  var charts = {};
+
+  var peakBandsPlugin = {
+    id: "peakBands",
+    beforeDraw: function(chart){
+      var xScale = chart.scales.x;
+      var yScale = chart.scales.y;
+      if (!xScale || !yScale) return;
+      var ctx = chart.ctx;
+      function band(hStart, hEnd, color){
+        var x1 = xScale.getPixelForValue(hStart);
+        var x2 = xScale.getPixelForValue(hEnd);
+        ctx.save();
+        ctx.fillStyle = color;
+        ctx.fillRect(x1, yScale.top, x2-x1, yScale.bottom - yScale.top);
+        ctx.restore();
+      }
+      band(8, 10.5, cssVar("--band-morning"));
+      band(16.5, 19.5, cssVar("--band-afternoon"));
+    }
+  };
+
+  var quadrantPlugin = {
+    id: "quadrantLines",
+    afterDraw: function(chart){
+      var opts = chart.config._quadrant;
+      if (!opts) return;
+      var xScale = chart.scales.x, yScale = chart.scales.y;
+      var ctx = chart.ctx;
+      var xPix = xScale.getPixelForValue(opts.avgX);
+      var yPix = yScale.getPixelForValue(opts.avgY);
+      ctx.save();
+      ctx.strokeStyle = cssVar("--muted");
+      ctx.setLineDash([4,4]);
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(xPix, yScale.top); ctx.lineTo(xPix, yScale.bottom); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(xScale.left, yPix); ctx.lineTo(xScale.right, yPix); ctx.stroke();
+      ctx.restore();
+    }
+  };
+
+  Chart.register(peakBandsPlugin, quadrantPlugin);
+  Chart.defaults.font.family = "'IBM Plex Sans', system-ui, sans-serif";
+
+  function baseGridColor(){ return cssVar("--gridline"); }
+  function baseTextColor(){ return cssVar("--text-secondary"); }
+
+  // ---------------------------------------------------------------------
+  // Renderers
+  // ---------------------------------------------------------------------
+  function renderKPIs(rows){
+    var totalRevenue = 0, totalCost = 0;
+    var txSet = new Set();
+    for (var i=0;i<rows.length;i++){
+      totalRevenue += rows[i][COLS.revenue];
+      totalCost += rows[i][COLS.cost];
+      txSet.add(rows[i][COLS.transactionId]);
+    }
+    var totalOrders = txSet.size;
+    var aov = totalOrders ? totalRevenue/totalOrders : 0;
+
+    // split filtered range at midpoint for a "vs prior period" delta
+    var mid = Math.floor((state.dateFrom + state.dateTo) / 2);
+    // safer: split by index over sorted distinct days rather than raw dateKey midpoint
+    var minD = state.dateFrom, maxD = state.dateTo;
+    var midDate = new Date((dateKeyToDate(minD).getTime() + dateKeyToDate(maxD).getTime())/2);
+    var midKey = parseInt(midDate.getFullYear()+String(midDate.getMonth()+1).padStart(2,"0")+String(midDate.getDate()).padStart(2,"0"),10);
+
+    var firstRev=0, secondRev=0, firstTx=new Set(), secondTx=new Set();
+    for (i=0;i<rows.length;i++){
+      var r = rows[i];
+      if (r[COLS.dateKey] < midKey){ firstRev += r[COLS.revenue]; firstTx.add(r[COLS.transactionId]); }
+      else { secondRev += r[COLS.revenue]; secondTx.add(r[COLS.transactionId]); }
+    }
+    var firstAOV = firstTx.size ? firstRev/firstTx.size : 0;
+    var secondAOV = secondTx.size ? secondRev/secondTx.size : 0;
+
+    function deltaHTML(curr, prev, elId){
+      var el = document.getElementById(elId);
+      if (!prev){ el.textContent = ""; el.className="delta tnum"; return; }
+      var pct = (curr-prev)/prev;
+      var arrow = pct > 0.001 ? "▲" : (pct < -0.001 ? "▼" : "▬");
+      var cls = pct > 0.001 ? "up" : (pct < -0.001 ? "down" : "flat");
+      el.textContent = arrow + " " + Math.abs(pct*100).toFixed(1) + "% vs prior period";
+      el.className = "delta tnum " + cls;
+    }
+
+    document.getElementById("kpiRevenue").textContent = fmtTND(totalRevenue);
+    document.getElementById("kpiOrders").textContent = fmtInt(totalOrders);
+    document.getElementById("kpiAOV").textContent = fmtTND(aov);
+    deltaHTML(secondRev, firstRev, "kpiRevenueDelta");
+    deltaHTML(secondTx.size, firstTx.size, "kpiOrdersDelta");
+    deltaHTML(secondAOV, firstAOV, "kpiAOVDelta");
+
+    // Top branch
+    var byStore = {};
+    for (i=0;i<rows.length;i++){
+      var sk = rows[i][COLS.storeKey];
+      byStore[sk] = (byStore[sk]||0) + rows[i][COLS.revenue];
+    }
+    var topKey = null, topVal = -1;
+    Object.keys(byStore).forEach(function(k){ if (byStore[k] > topVal){ topVal = byStore[k]; topKey = k; } });
+    if (topKey){
+      document.getElementById("kpiTopBranch").textContent = DATA.stores[topKey].name;
+      document.getElementById("kpiTopBranchSub").textContent = fmtTND(topVal) + " revenue";
+      document.getElementById("kpiTopBranchSub").className = "delta flat";
+    } else {
+      document.getElementById("kpiTopBranch").textContent = "–";
+      document.getElementById("kpiTopBranchSub").textContent = "";
+    }
+
+    // Menu page KPIs
+    var txRows = groupByTransaction(rows);
+    var pastryTx = txRows.filter(function(t){ return t.hasPastry; }).length;
+    var pastryRate = txRows.length ? pastryTx/txRows.length : 0;
+    document.getElementById("kpiPastry").textContent = fmtPct(pastryRate);
+
+    var digitalRevenue = 0;
+    for (i=0;i<rows.length;i++){
+      var payType = DATA.payments[rows[i][COLS.paymentKey]].type;
+      if (payType === "Digital") digitalRevenue += rows[i][COLS.revenue];
+    }
+    document.getElementById("kpiDigital").textContent = fmtPct(totalRevenue ? digitalRevenue/totalRevenue : 0);
+  }
+
+  function upsertChart(id, config){
+    var ctx = document.getElementById(id).getContext("2d");
+    if (charts[id]){
+      charts[id].data = config.data;
+      charts[id].options = config.options;
+      charts[id].config._quadrant = config._quadrant;
+      charts[id].update();
+    } else {
+      charts[id] = new Chart(ctx, config);
+      charts[id].config._quadrant = config._quadrant;
+    }
+  }
+
+  function renderHourly(rows){
+    var revByHour = {};
+    for (var h=7; h<=22; h++) revByHour[h]=0;
+    rows.forEach(function(r){ revByHour[r[COLS.hour]] = (revByHour[r[COLS.hour]]||0) + r[COLS.revenue]; });
+    var hours = Object.keys(revByHour).map(Number).sort(function(a,b){return a-b;});
+    var points = hours.map(function(h){ return { x: h, y: revByHour[h] }; });
+
+    // x is a true linear scale (not category) so the peak-band plugin can
+    // place bands at fractional hours like 10.5 / 16.5 with real pixel math.
+    upsertChart("chartHourly", {
+      type: "line",
+      data: {
+        datasets: [{
+          label: "Revenue (TND)",
+          data: points,
+          borderColor: colorFor(0),
+          backgroundColor: colorFor(0) + "33",
+          fill: true,
+          tension: 0.35,
+          pointRadius: 2,
+          pointHoverRadius: 5,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: function(items){ var h = items[0].parsed.x; return (h<10?"0":"")+h+":00"; },
+              label: function(ctx){ return "Revenue: " + fmtTND(ctx.parsed.y); }
+            }
+          }
+        },
+        scales: {
+          x: {
+            type: "linear", min: 7, max: 22,
+            grid: { display:false },
+            ticks: { color: baseTextColor(), stepSize: 1, callback: function(v){ return (v<10?"0":"")+v+":00"; } }
+          },
+          y: { grid: { color: baseGridColor() }, ticks: { color: baseTextColor(), callback: function(v){ return v.toLocaleString(); } } }
+        }
+      }
+    });
+  }
+
+  function renderChannel(rows){
+    var byChannel = {};
+    TIME_SLOTS.forEach(function(s){ byChannel[s.name] = {}; });
+    rows.forEach(function(r){
+      var slot = timeSlotFor(r[COLS.hour]*60 + r[COLS.minute]);
+      if (!byChannel[slot]) return;
+      var ck = r[COLS.channelKey];
+      byChannel[slot][ck] = (byChannel[slot][ck]||0) + r[COLS.revenue];
+    });
+    var channelKeys = Object.keys(DATA.channels).map(Number).sort(function(a,b){return a-b;});
+    var datasets = channelKeys.map(function(ck){
+      return {
+        label: DATA.channels[ck].name,
+        data: TIME_SLOTS.map(function(s){ return (byChannel[s.name][ck])||0; }),
+        backgroundColor: colorFor(CHANNEL_SLOT[ck]),
+        borderRadius: 3,
+        maxBarThickness: 46
+      };
+    });
+    upsertChart("chartChannel", {
+      type: "bar",
+      data: { labels: TIME_SLOTS.map(function(s){return s.name;}), datasets: datasets },
+      options: {
+        responsive:true, maintainAspectRatio:false,
+        interaction: { mode: "nearest", intersect: true },
+        plugins: {
+          legend: { position:"bottom", labels: { color: baseTextColor(), boxWidth:10, boxHeight:10, padding: 12 } },
+          tooltip: { callbacks: { label: function(ctx){ return ctx.dataset.label + ": " + fmtTND(ctx.parsed.y); } } }
+        },
+        scales: {
+          x: { stacked:true, grid:{display:false}, ticks:{ color: baseTextColor(), autoSkip:false, maxRotation:20, minRotation:0, font:{size:10.5} } },
+          y: { stacked:true, grid:{ color: baseGridColor() }, ticks:{ color: baseTextColor() } }
+        }
+      }
+    });
+  }
+
+  function renderPayment(rows){
+    var byPayment = {};
+    rows.forEach(function(r){
+      var pk = r[COLS.paymentKey];
+      byPayment[pk] = (byPayment[pk]||0) + r[COLS.revenue];
+    });
+    var keys = Object.keys(DATA.payments).map(Number).sort(function(a,b){return a-b;});
+    var total = keys.reduce(function(s,k){ return s + (byPayment[k]||0); }, 0);
+    upsertChart("chartPayment", {
+      type: "doughnut",
+      data: {
+        labels: keys.map(function(k){ return DATA.payments[k].method; }),
+        datasets: [{
+          data: keys.map(function(k){ return byPayment[k]||0; }),
+          backgroundColor: keys.map(function(k){ return colorFor(PAYMENT_SLOT[k]); }),
+          borderColor: cssVar("--surface"),
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive:true, maintainAspectRatio:false,
+        cutout: "62%",
+        plugins: {
+          legend: { position:"bottom", labels:{ color: baseTextColor(), boxWidth:10, boxHeight:10, padding:12 } },
+          tooltip: { callbacks: { label: function(ctx){
+            var pct = total ? ctx.parsed/total : 0;
+            return ctx.label + ": " + fmtTND(ctx.parsed) + " (" + fmtPct(pct) + ")";
+          } } }
+        }
+      }
+    });
+  }
+
+  function renderBranch(rows){
+    var byStore = {};
+    rows.forEach(function(r){
+      var sk = r[COLS.storeKey];
+      byStore[sk] = (byStore[sk]||0) + r[COLS.revenue];
+    });
+    var keys = Object.keys(DATA.stores).map(Number);
+    keys.sort(function(a,b){ return (byStore[b]||0) - (byStore[a]||0); });
+    upsertChart("chartBranch", {
+      type: "bar",
+      data: {
+        labels: keys.map(function(k){ return DATA.stores[k].name.replace("Baristas ",""); }),
+        datasets: [{
+          label: "Revenue (TND)",
+          data: keys.map(function(k){ return byStore[k]||0; }),
+          backgroundColor: keys.map(function(k){ return colorFor(STORETYPE_SLOT[DATA.stores[k].type]); }),
+          borderRadius: 4,
+          maxBarThickness: 56
+        }]
+      },
+      options: {
+        responsive:true, maintainAspectRatio:false, indexAxis: "y",
+        plugins: {
+          legend: { display:false },
+          tooltip: { callbacks: { label: function(ctx){
+            var sk = keys[ctx.dataIndex];
+            return DATA.stores[sk].type + ": " + fmtTND(ctx.parsed.x);
+          } } }
+        },
+        scales: {
+          x: { grid:{ color: baseGridColor() }, ticks:{ color: baseTextColor() } },
+          y: { grid:{ display:false }, ticks:{ color: baseTextColor() } }
+        }
+      }
+    });
+  }
+
+  function renderScatter(rows){
+    var byProduct = {};
+    rows.forEach(function(r){
+      var pk = r[COLS.productKey];
+      if (!byProduct[pk]) byProduct[pk] = { units:0, revenue:0 };
+      byProduct[pk].units += r[COLS.quantity];
+      byProduct[pk].revenue += r[COLS.revenue];
+    });
+    var pkeys = Object.keys(byProduct).map(Number);
+    if (!pkeys.length){
+      upsertChart("chartScatter", { type:"bubble", data:{datasets:[]}, options:{responsive:true,maintainAspectRatio:false} });
+      return;
+    }
+    var maxRevenue = Math.max.apply(null, pkeys.map(function(k){ return byProduct[k].revenue; }));
+    var avgUnits = pkeys.reduce(function(s,k){ return s+byProduct[k].units; },0) / pkeys.length;
+    var avgMargin = pkeys.reduce(function(s,k){ return s+DATA.products[k].margin; },0) / pkeys.length;
+
+    var byCategory = {};
+    pkeys.forEach(function(k){
+      var cat = DATA.products[k].category;
+      if (!byCategory[cat]) byCategory[cat] = [];
+      byCategory[cat].push(k);
+    });
+
+    var datasets = CATEGORY_ORDER.filter(function(c){ return byCategory[c]; }).map(function(cat){
+      return {
+        label: cat,
+        data: byCategory[cat].map(function(k){
+          var p = DATA.products[k];
+          var r = 6 + 22 * Math.sqrt(byProduct[k].revenue / maxRevenue);
+          return { x: byProduct[k].units, y: p.margin, r: r, _name: p.name };
+        }),
+        backgroundColor: colorFor(CATEGORY_SLOT[cat]) + "b3",
+        borderColor: colorFor(CATEGORY_SLOT[cat]),
+        borderWidth: 1.5
+      };
+    });
+
+    var cfg = {
+      type: "bubble",
+      data: { datasets: datasets },
+      options: {
+        responsive:true, maintainAspectRatio:false,
+        plugins: {
+          legend: { position:"bottom", labels:{ color: baseTextColor(), boxWidth:10, boxHeight:10, padding:12 } },
+          tooltip: { callbacks: { label: function(ctx){
+            var d = ctx.raw;
+            return d._name + " — " + ctx.dataset.label + " · " + d.x + " units · " + d.y.toFixed(2) + " TND margin";
+          } } }
+        },
+        scales: {
+          x: { title:{ display:true, text:"Units sold", color: baseTextColor() }, grid:{ color: baseGridColor() }, ticks:{ color: baseTextColor() } },
+          y: { title:{ display:true, text:"Unit margin (TND)", color: baseTextColor() }, grid:{ color: baseGridColor() }, ticks:{ color: baseTextColor() } }
+        }
+      },
+      _quadrant: { avgX: avgUnits, avgY: avgMargin }
+    };
+    upsertChart("chartScatter", cfg);
+  }
+
+  function renderCategory(rows){
+    var byCat = {};
+    rows.forEach(function(r){
+      var cat = DATA.products[r[COLS.productKey]].category;
+      byCat[cat] = (byCat[cat]||0) + r[COLS.revenue];
+    });
+    var cats = CATEGORY_ORDER.filter(function(c){ return byCat[c] !== undefined; });
+    upsertChart("chartCategory", {
+      type: "doughnut",
+      data: {
+        labels: cats,
+        datasets: [{
+          data: cats.map(function(c){ return byCat[c]; }),
+          backgroundColor: cats.map(function(c){ return colorFor(CATEGORY_SLOT[c]); }),
+          borderColor: cssVar("--surface"),
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive:true, maintainAspectRatio:false, cutout:"56%",
+        plugins: {
+          legend: { position:"bottom", labels:{ color: baseTextColor(), boxWidth:10, boxHeight:10, padding:10, font:{size:11} } },
+          tooltip: { callbacks: { label: function(ctx){ return ctx.label + ": " + fmtTND(ctx.parsed); } } }
+        }
+      }
+    });
+  }
+
+  function renderTopProducts(rows){
+    var byProduct = {};
+    rows.forEach(function(r){
+      var pk = r[COLS.productKey];
+      byProduct[pk] = (byProduct[pk]||0) + r[COLS.revenue];
+    });
+    var pkeys = Object.keys(byProduct).map(Number);
+    pkeys.sort(function(a,b){ return byProduct[b]-byProduct[a]; });
+    pkeys = pkeys.slice(0,10);
+    upsertChart("chartTopProducts", {
+      type: "bar",
+      data: {
+        labels: pkeys.map(function(k){ return DATA.products[k].name; }),
+        datasets: [{
+          label:"Revenue (TND)",
+          data: pkeys.map(function(k){ return byProduct[k]; }),
+          backgroundColor: colorFor(0),
+          borderRadius: 4,
+          maxBarThickness: 22
+        }]
+      },
+      options: {
+        responsive:true, maintainAspectRatio:false, indexAxis:"y",
+        plugins: {
+          legend: { display:false },
+          tooltip: { callbacks: { label: function(ctx){ return fmtTND(ctx.parsed.x); } } }
+        },
+        scales: {
+          x: { grid:{ color: baseGridColor() }, ticks:{ color: baseTextColor() } },
+          y: { grid:{ display:false }, ticks:{ color: baseTextColor(), font:{size:11} } }
+        }
+      }
+    });
+  }
+
+  // ---------------------------------------------------------------------
+  // Transaction table
+  // ---------------------------------------------------------------------
+  function renderTable(rows){
+    var txRows = groupByTransaction(rows);
+    var q = state.txSearch.trim().toLowerCase();
+    if (q){
+      txRows = txRows.filter(function(t){
+        var store = DATA.stores[t.storeKey].name.toLowerCase();
+        return String(t.id).indexOf(q) !== -1 || store.indexOf(q) !== -1;
+      });
+    }
+
+    var key = state.txSort.key, dir = state.txSort.dir;
+    txRows.sort(function(a,b){
+      var av, bv;
+      switch(key){
+        case "id": av=a.id; bv=b.id; break;
+        case "store": av=DATA.stores[a.storeKey].name; bv=DATA.stores[b.storeKey].name; break;
+        case "channel": av=DATA.channels[a.channelKey].name; bv=DATA.channels[b.channelKey].name; break;
+        case "payment": av=DATA.payments[a.paymentKey].method; bv=DATA.payments[b.paymentKey].method; break;
+        case "items": av=a.items; bv=b.items; break;
+        case "revenue": av=a.revenue; bv=b.revenue; break;
+        default: av = a.dateKey*10000 + a.hour*100 + a.minute; bv = b.dateKey*10000 + b.hour*100 + b.minute;
+      }
+      if (av < bv) return -1*dir;
+      if (av > bv) return 1*dir;
+      return 0;
+    });
+
+    document.getElementById("txCount").textContent = fmtInt(txRows.length) + " transactions";
+
+    var pageSize = state.txPageSize;
+    var maxPage = Math.max(0, Math.ceil(txRows.length/pageSize) - 1);
+    if (state.txPage > maxPage) state.txPage = maxPage;
+    var start = state.txPage * pageSize;
+    var pageRows = txRows.slice(start, start+pageSize);
+
+    var body = document.getElementById("txBody");
+    var empty = document.getElementById("txEmpty");
+    if (!pageRows.length){
+      body.innerHTML = "";
+      empty.hidden = false;
+    } else {
+      empty.hidden = true;
+      body.innerHTML = pageRows.map(function(t){
+        var store = DATA.stores[t.storeKey];
+        var channel = DATA.channels[t.channelKey];
+        var payment = DATA.payments[t.paymentKey];
+        var hv = t.revenue > 30;
+        var chBadge = channel.group === "Delivery"
+          ? '<span class="badge delivery">Delivery</span>'
+          : '<span class="badge instore">In-Store</span>';
+        return "<tr class=\"" + (hv?"hv":"") + "\">" +
+          "<td class=\"tnum\">#" + t.id + "</td>" +
+          "<td class=\"tnum\">" + fmtDateShort(t.dateKey) + " " + fmtTime(t.hour,t.minute) + "</td>" +
+          "<td>" + store.name.replace("Baristas ","") + "</td>" +
+          "<td>" + channel.name + " " + chBadge + "</td>" +
+          "<td>" + payment.method + "</td>" +
+          "<td class=\"tnum\">" + t.items + "</td>" +
+          "<td class=\"tnum\">" + t.revenue.toFixed(2) + (hv ? ' <span class="badge hv">High value</span>' : "") + "</td>" +
+        "</tr>";
+      }).join("");
+    }
+
+    document.getElementById("txPageLabel").textContent = "Page " + (state.txPage+1) + " of " + (maxPage+1);
+    document.getElementById("txPrev").disabled = state.txPage <= 0;
+    document.getElementById("txNext").disabled = state.txPage >= maxPage;
+  }
+
+  // ---------------------------------------------------------------------
+  // Master render
+  // ---------------------------------------------------------------------
+  function renderAll(){
+    var rows = getFilteredRows();
+    document.getElementById("rowcount").textContent = fmtInt(rows.length) + " line items in view";
+    renderKPIs(rows);
+    renderHourly(rows);
+    renderChannel(rows);
+    renderPayment(rows);
+    renderBranch(rows);
+    renderScatter(rows);
+    renderCategory(rows);
+    renderTopProducts(rows);
+    renderTable(rows);
+  }
+
+  // ---------------------------------------------------------------------
+  // Filter UI wiring
+  // ---------------------------------------------------------------------
+  function buildChips(containerId, items, selectedSet, colorSlotMap, onChange){
+    var container = document.getElementById(containerId);
+    items.forEach(function(item){
+      var chip = document.createElement("button");
+      chip.className = "chip on";
+      chip.type = "button";
+      var swatch = document.createElement("span");
+      swatch.className = "swatch";
+      swatch.style.background = colorSlotMap ? colorFor(colorSlotMap[item.key]) : "var(--muted)";
+      chip.appendChild(swatch);
+      chip.appendChild(document.createTextNode(item.label));
+      chip.addEventListener("click", function(){
+        if (selectedSet.has(item.key)) { selectedSet.delete(item.key); chip.classList.remove("on"); }
+        else { selectedSet.add(item.key); chip.classList.add("on"); }
+        // empty set means "all" — reflect that visually
+        if (selectedSet.size === 0){
+          Array.prototype.forEach.call(container.querySelectorAll(".chip"), function(c){ c.classList.add("on"); });
+        }
+        onChange();
+      });
+      container.appendChild(chip);
+    });
+  }
+
+  function init(){
+    document.getElementById("dateFrom").value = dateKeyToISO(DATA.meta.minDateKey);
+    document.getElementById("dateTo").value = dateKeyToISO(DATA.meta.maxDateKey);
+    document.getElementById("dateFrom").min = dateKeyToISO(DATA.meta.minDateKey);
+    document.getElementById("dateFrom").max = dateKeyToISO(DATA.meta.maxDateKey);
+    document.getElementById("dateTo").min = dateKeyToISO(DATA.meta.minDateKey);
+    document.getElementById("dateTo").max = dateKeyToISO(DATA.meta.maxDateKey);
+    document.getElementById("footRange").textContent = fmtDateShort(DATA.meta.minDateKey) + " – " + fmtDateShort(DATA.meta.maxDateKey);
+    document.getElementById("footTx").textContent = fmtInt(DATA.meta.transactionCount);
+
+    document.getElementById("dateFrom").addEventListener("change", function(e){
+      state.dateFrom = isoToDateKey(e.target.value); state.txPage = 0; renderAll();
+    });
+    document.getElementById("dateTo").addEventListener("change", function(e){
+      state.dateTo = isoToDateKey(e.target.value); state.txPage = 0; renderAll();
+    });
+
+    var storeItems = Object.keys(DATA.stores).map(Number).map(function(k){
+      return { key:k, label: DATA.stores[k].name.replace("Baristas ","") };
+    });
+    buildChips("storeChips", storeItems, state.stores, null, function(){ state.txPage=0; renderAll(); });
+
+    var channelItems = Object.keys(DATA.channels).map(Number).map(function(k){
+      return { key:k, label: DATA.channels[k].name };
+    });
+    buildChips("channelChips", channelItems, state.channels, CHANNEL_SLOT, function(){ state.txPage=0; renderAll(); });
+
+    document.getElementById("resetFilters").addEventListener("click", function(){
+      state.dateFrom = DATA.meta.minDateKey;
+      state.dateTo = DATA.meta.maxDateKey;
+      state.stores.clear();
+      state.channels.clear();
+      state.txSearch = "";
+      state.txPage = 0;
+      document.getElementById("dateFrom").value = dateKeyToISO(DATA.meta.minDateKey);
+      document.getElementById("dateTo").value = dateKeyToISO(DATA.meta.maxDateKey);
+      document.getElementById("txSearch").value = "";
+      Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(c){ c.classList.add("on"); });
+      renderAll();
+    });
+
+    document.getElementById("txSearch").addEventListener("input", function(e){
+      state.txSearch = e.target.value; state.txPage = 0; renderTable(getFilteredRows());
+    });
+    document.getElementById("txPrev").addEventListener("click", function(){ state.txPage = Math.max(0, state.txPage-1); renderTable(getFilteredRows()); });
+    document.getElementById("txNext").addEventListener("click", function(){ state.txPage += 1; renderTable(getFilteredRows()); });
+    Array.prototype.forEach.call(document.querySelectorAll("thead th"), function(th){
+      th.addEventListener("click", function(){
+        var k = th.getAttribute("data-key");
+        if (state.txSort.key === k) state.txSort.dir *= -1;
+        else { state.txSort.key = k; state.txSort.dir = 1; }
+        renderTable(getFilteredRows());
+      });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll(".navtab"), function(tab){
+      tab.addEventListener("click", function(){
+        Array.prototype.forEach.call(document.querySelectorAll(".navtab"), function(t){ t.classList.remove("active"); });
+        tab.classList.add("active");
+        var target = tab.getAttribute("data-page");
+        ["overview","menu","audit"].forEach(function(p){
+          document.getElementById("page-"+p).hidden = (p !== target);
+        });
+        state.page = target;
+      });
+    });
+
+    if (window.matchMedia){
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function(){
+        renderAll();
+      });
+    }
+
+    renderAll();
+  }
+
+  init();
+})();
+</script>

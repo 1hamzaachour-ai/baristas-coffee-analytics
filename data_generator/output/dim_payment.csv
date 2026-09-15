@@ -1,0 +1,5 @@
+PaymentKey,PaymentMethod,PaymentType
+1,Cash,Cash
+2,Carte Bancaire,Digital
+3,Flouci,Digital
+4,D17,Digital
