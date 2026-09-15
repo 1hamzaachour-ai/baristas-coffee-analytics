@@ -35,6 +35,10 @@ Technical build:
   and a searchable Transaction Audit page
 
 Full project (star schema, generator script, DAX library, and wireframes)
-is on GitHub — link in comments.
+is on GitHub — link in the comments 👇
 
 #PowerBI #DataAnalytics #DAX #BusinessIntelligence #Tunisia #DataEngineering
+
+---
+First comment (post the link here, not in the body — keeps LinkedIn's reach algorithm happy):
+https://github.com/1hamzaachour-ai/baristas-coffee-analytics
