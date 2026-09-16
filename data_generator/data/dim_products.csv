@@ -1,0 +1,26 @@
+ProductKey,ProductName,Category,UnitCostTND,UnitPriceTND,MarginTND
+1,Espresso,Espresso & Classic Coffee,1.4,3.5,2.1
+2,Espresso Macchiato,Espresso & Classic Coffee,1.6,4.0,2.4
+3,Americano,Espresso & Classic Coffee,1.5,3.8,2.3
+4,Cappuccino,Espresso & Classic Coffee,1.9,4.5,2.6
+5,Cafe Latte,Espresso & Classic Coffee,2.0,4.8,2.8
+6,Flat White,Espresso & Classic Coffee,2.1,5.0,2.9
+7,Cafe Creme,Espresso & Classic Coffee,1.8,4.3,2.5
+8,Cold Brew Original,Cold Brew & Frappes,3.2,8.5,5.3
+9,Iced Latte,Cold Brew & Frappes,3.4,9.0,5.6
+10,Iced Americano,Cold Brew & Frappes,3.0,8.0,5.0
+11,Iced Caramel Macchiato,Cold Brew & Frappes,3.8,10.5,6.7
+12,Caramel Frappe,Cold Brew & Frappes,4.2,12.0,7.8
+13,Mocha Frappe,Cold Brew & Frappes,4.3,12.5,8.2
+14,Matcha Ice Blend,Cold Brew & Frappes,4.6,13.5,8.9
+15,Mixed Berry Smoothie,Cold Brew & Frappes,4.0,11.0,7.0
+16,Mango Passion Smoothie,Cold Brew & Frappes,4.1,11.5,7.4
+17,Butter Croissant,Pastries & Bakery,1.6,4.5,2.9
+18,Pain au Chocolat,Pastries & Bakery,1.8,5.0,3.2
+19,Blueberry Muffin,Pastries & Bakery,2.0,5.5,3.5
+20,Cinnamon Roll,Pastries & Bakery,2.4,6.5,4.1
+21,Cheesecake Slice,Pastries & Bakery,3.2,9.0,5.8
+22,Chicken Panini,Savory Snacks,3.6,9.5,5.9
+23,Turkey & Cheese Wrap,Savory Snacks,3.4,9.0,5.6
+24,Vegetable Quiche,Savory Snacks,3.0,8.0,5.0
+25,Tuna Sandwich,Savory Snacks,3.2,8.5,5.3

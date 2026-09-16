@@ -108,9 +108,9 @@ VAR TopHour =
 RETURN
     MAXX ( TopHour, Dim_Time[Hour] )
 
-// Digital vs Cash Ratio % — share of revenue paid via non-cash methods
+// Digital Payment Adoption % — share of revenue paid via non-cash methods
 // (Carte Bancaire, Flouci, D17 — grouped as Dim_Payment[PaymentType] = "Digital")
-Digital vs Cash Ratio % =
+Digital Payment Adoption % =
 VAR DigitalRevenue =
     CALCULATE (
         [Total Revenue (TND)],
@@ -123,9 +123,9 @@ RETURN
         0
     )
 
-// Delivery vs In-Store Revenue Mix % — share of revenue from delivery platforms
+// Delivery Revenue Share % — share of revenue from delivery platforms
 // (Glovo, Jumia Food — grouped as Dim_Channel[ChannelGroup] = "Delivery")
-Delivery Revenue Mix % =
+Delivery Revenue Share % =
 VAR DeliveryRevenue =
     CALCULATE (
         [Total Revenue (TND)],
@@ -138,8 +138,8 @@ RETURN
         0
     )
 
-In-Store Revenue Mix % =
-1 - [Delivery Revenue Mix %]
+In-Store Revenue Share % =
+1 - [Delivery Revenue Share %]
 
 // Pastry Attachment Rate % — % of transactions that included at least 1 Bakery item
 // Uses a transaction-level virtual table so basket composition is evaluated
@@ -150,7 +150,7 @@ VAR TransactionsWithPastry =
         DISTINCTCOUNT ( Fact_Sales[TransactionID] ),
         FILTER (
             ALL ( Dim_Product ),
-            Dim_Product[Category] = "Bakery & Pastries"
+            Dim_Product[Category] = "Pastries & Bakery"
         )
     )
 RETURN

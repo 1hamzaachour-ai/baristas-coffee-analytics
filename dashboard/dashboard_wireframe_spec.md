@@ -59,10 +59,10 @@ red `#B5473C` for declines). Canvas: 1280×720, Power BI standard 16:9.
 │  (Scatter Plot)                          │  (Treemap or Donut)             │
 │                                           │                                  │
 │  margin ▲                                │   Espresso & Classic Coffee     │
-│    Hi  │  ★ Niche      ★ Stars           │   Cold Brew & Iced Coffee       │
-│        │                                 │   Signature Frappes & Smoothies │
-│    Lo  │  · · ·      ● Volume Drivers    │   Bakery & Pastries             │
-│        └───────────────────────▶ volume  │   Savory Snacks                 │
+│    Hi  │  ★ Niche      ★ Stars           │   Cold Brew & Frappes           │
+│        │                                 │   Pastries & Bakery             │
+│    Lo  │  · · ·      ● Volume Drivers    │   Savory Snacks                 │
+│        └───────────────────────▶ volume  │                                  │
 │         bubble size = Total Revenue      │                                  │
 ├───────────────────────────────────────────────────────────────────────────┤
 │  TOP / BOTTOM 10 PRODUCTS BY REVENUE (Horizontal Bar, ranked)             │
@@ -78,7 +78,7 @@ red `#B5473C` for declines). Canvas: 1280×720, Power BI standard 16:9.
 | Margin vs Volume | Scatter chart | X: `[Total Units Sold]`; Y: `Dim_Product[MarginTND]`; Details: `Dim_Product[ProductName]`; Size: `[Total Revenue (TND)]` | Add average lines (analytics pane) to split into 4 quadrants: **Stars** (high margin, high volume), **Volume Drivers** (low margin, high volume), **High-Margin Niche** (high margin, low volume), **Review** (low margin, low volume) |
 | Category breakdown | Treemap or donut | Group: `Dim_Product[Category]`; Values: `[Total Revenue (TND)]` | Treemap preferred — shows relative size at a glance |
 | Top/Bottom products | Bar chart (ranked) | Axis: `Dim_Product[ProductName]`; Values: `[Total Revenue (TND)]` | Use a Top N filter (10) toggled by a bookmark or slicer |
-| KPI cards | Card | `[Pastry Attachment Rate %]`, `[Digital vs Cash Ratio %]` | Supports the "menu profitability" and "digital adoption" narrative |
+| KPI cards | Card | `[Pastry Attachment Rate %]`, `[Digital Payment Adoption %]` | Supports the "menu profitability" and "digital adoption" narrative |
 
 ---
 

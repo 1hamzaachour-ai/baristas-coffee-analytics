@@ -100,7 +100,7 @@ Intraday time dimension at minute grain, mapped to named Tunisian café traffic 
 |---|---|---|
 | `StoreKey` (PK) | INT | Surrogate key |
 | `StoreName` | TEXT | e.g. "Baristas La Marsa" |
-| `City` | TEXT | La Marsa, Lac 2, Ennasr, Menzah, Sousse, Sfax |
+| `City` | TEXT | La Marsa, Lac 2, Ennasr, Menzah |
 | `Region` | TEXT | Greater Tunis / Sahel / South |
 | `StoreType` | TEXT | Express (kiosk/takeaway-first) vs Full Café (dine-in + terrace) |
 | `OpenDate` | DATE | Store opening date |
@@ -110,7 +110,7 @@ Intraday time dimension at minute grain, mapped to named Tunisian café traffic 
 |---|---|---|
 | `ProductKey` (PK) | INT | Surrogate key |
 | `ProductName` | TEXT | e.g. "Iced Caramel Frappé" |
-| `Category` | TEXT | Espresso & Classic Coffee / Cold Brew & Iced Coffee / Signature Frappés & Smoothies / Bakery & Pastries / Savory Snacks |
+| `Category` | TEXT | Espresso & Classic Coffee / Cold Brew & Frappes / Pastries & Bakery / Savory Snacks |
 | `UnitCostTND` | DECIMAL | Standard cost |
 | `UnitPriceTND` | DECIMAL | Standard menu price |
 | `MarginTND` | DECIMAL | `UnitPriceTND - UnitCostTND` |
@@ -120,7 +120,7 @@ Intraday time dimension at minute grain, mapped to named Tunisian café traffic 
 |---|---|---|
 | `PaymentKey` (PK) | INT | Surrogate key |
 | `PaymentMethod` | TEXT | Cash / Carte Bancaire / Flouci / D17 |
-| `PaymentType` | TEXT | Cash vs Digital (grouping attribute for Digital vs Cash Ratio) |
+| `PaymentType` | TEXT | Cash vs Digital (grouping attribute for Digital Payment Adoption %) |
 
 ### Dim_Channel
 | Column | Type | Description |

@@ -68,14 +68,14 @@ baristas-coffee-analytics/
 │   └── star_schema_design.md       # Fact/dimension grain, relationships, ER diagram
 ├── data_generator/
 │   ├── generate_baristas_data.py   # Synthetic data generator (~10K line items, 6 months)
-│   └── output/                     # Generated CSVs (fact + dimensions)
+│   └── data/                       # Generated CSVs (fact + dimensions)
 ├── dax/
 │   └── dax_measures_library.dax    # Copy-paste ready DAX measures
 ├── dashboard/
 │   ├── dashboard_wireframe_spec.md # 3-page wireframe + visual field mapping
 │   └── web/                        # Standalone interactive HTML/JS dashboard
 │       ├── index.html
-│       ├── data.js                 # Compact encoded dataset (built from output/ CSVs)
+│       ├── data.js                 # Compact encoded dataset (built from data/ CSVs)
 │       └── build_data.py
 ├── docs/
 │   └── dashboard-preview.png
@@ -106,10 +106,10 @@ Dim_Channel┘
    cd data_generator
    python generate_baristas_data.py
    ```
-   Produces `fact_sales.csv`, `dim_stores.csv`, `dim_products.csv`,
+   Produces `fact_sales.csv`, `dim_store.csv`, `dim_products.csv`,
    `dim_payment.csv`, `dim_channel.csv`, `dim_date.csv`, `dim_time.csv` in
-   `data_generator/output/`.
-2. **Power BI route:** Get Data → Folder → point to `data_generator/output/`.
+   `data_generator/data/`.
+2. **Power BI route:** Get Data → Folder → point to `data_generator/data/`.
    Build relationships per `star_schema_design.md`, mark `Dim_Date` as the
    date table, paste in the measures from `dax/dax_measures_library.dax`,
    then recreate the 3 report pages using `dashboard/dashboard_wireframe_spec.md`.
@@ -120,7 +120,7 @@ Dim_Channel┘
 
 ## 📈 Key outcomes (from the synthetic 6-month sample)
 
-- ~84.8K TND in modeled revenue across 6,000+ transactions and 6 branches.
+- ~84.8K TND in modeled revenue across 6,000+ transactions and 4 branches.
 - Payment mix lands at ~55% Cash / 30% Carte Bancaire / 15% mobile wallets
   (Flouci + D17) — confirming cash still leads but digital payment adoption
   is a meaningful and trackable share of volume.

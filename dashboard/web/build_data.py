@@ -13,10 +13,10 @@ import os
 
 import pandas as pd
 
-SRC = os.path.join("..", "..", "data_generator", "output")
+SRC = os.path.join("..", "..", "data_generator", "data")
 
 fact = pd.read_csv(os.path.join(SRC, "fact_sales.csv"))
-stores = pd.read_csv(os.path.join(SRC, "dim_stores.csv"))
+stores = pd.read_csv(os.path.join(SRC, "dim_store.csv"))
 products = pd.read_csv(os.path.join(SRC, "dim_products.csv"))
 payment = pd.read_csv(os.path.join(SRC, "dim_payment.csv"))
 channel = pd.read_csv(os.path.join(SRC, "dim_channel.csv"))

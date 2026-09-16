@@ -6,7 +6,7 @@ Baristas Coffee Shop Power BI project. Models Tunisian market specifics:
 TND pricing, local payment habits (Cash / Carte Bancaire / Flouci / D17),
 and local traffic patterns (Morning Rush, Afternoon Coffee Peak).
 
-Output: CSV files written to ./output/, ready to be loaded into Power BI
+Output: CSV files written to ./data/, ready to be loaded into Power BI
 via Power Query (Get Data > Folder, or one-by-one CSV import).
 
 Run:
@@ -33,7 +33,7 @@ TARGET_LINE_ITEMS = 10_000          # Fact_Sales row target (grain = line item)
 END_DATE = datetime(2026, 9, 14)
 START_DATE = END_DATE - timedelta(days=183)   # ~6 months of trading history
 
-OUTPUT_DIR = "output"
+OUTPUT_DIR = "data"
 
 # Café operating window
 OPEN_HOUR, OPEN_MIN = 7, 0
@@ -55,14 +55,12 @@ AFTERNOON_PEAK = (16 * 60 + 30, 19 * 60 + 30)  # 16:30 - 19:30, cold drinks & so
 # Dim_Store
 # ---------------------------------------------------------------------------
 stores = [
-    {"StoreKey": 1, "StoreName": "Baristas La Marsa",      "City": "La Marsa", "Region": "Greater Tunis", "StoreType": "Full Cafe",  "OpenDate": "2022-03-01", "TrafficWeight": 1.35},
-    {"StoreKey": 2, "StoreName": "Baristas Lac 2",          "City": "Lac 2",    "Region": "Greater Tunis", "StoreType": "Full Cafe",  "OpenDate": "2021-11-15", "TrafficWeight": 1.30},
-    {"StoreKey": 3, "StoreName": "Baristas Ennasr",         "City": "Ennasr",   "Region": "Greater Tunis", "StoreType": "Express",    "OpenDate": "2023-01-10", "TrafficWeight": 0.95},
-    {"StoreKey": 4, "StoreName": "Baristas Menzah",         "City": "Menzah",   "Region": "Greater Tunis", "StoreType": "Full Cafe",  "OpenDate": "2022-07-20", "TrafficWeight": 1.05},
-    {"StoreKey": 5, "StoreName": "Baristas Sousse Corniche","City": "Sousse",   "Region": "Sahel",         "StoreType": "Full Cafe",  "OpenDate": "2023-05-05", "TrafficWeight": 0.85},
-    {"StoreKey": 6, "StoreName": "Baristas Sfax Centre Ville","City": "Sfax",   "Region": "South",         "StoreType": "Express",    "OpenDate": "2023-09-12", "TrafficWeight": 0.70},
+    {"StoreKey": 1, "StoreName": "Baristas La Marsa", "City": "La Marsa", "Region": "Greater Tunis", "StoreType": "Full Cafe",  "OpenDate": "2022-03-01", "TrafficWeight": 1.35},
+    {"StoreKey": 2, "StoreName": "Baristas Lac 2",     "City": "Lac 2",    "Region": "Greater Tunis", "StoreType": "Full Cafe",  "OpenDate": "2021-11-15", "TrafficWeight": 1.30},
+    {"StoreKey": 3, "StoreName": "Baristas Ennasr",    "City": "Ennasr",   "Region": "Greater Tunis", "StoreType": "Express",    "OpenDate": "2023-01-10", "TrafficWeight": 0.95},
+    {"StoreKey": 4, "StoreName": "Baristas Menzah",    "City": "Menzah",   "Region": "Greater Tunis", "StoreType": "Full Cafe",  "OpenDate": "2022-07-20", "TrafficWeight": 1.05},
 ]
-dim_stores_df = pd.DataFrame(stores).drop(columns=["TrafficWeight"])
+dim_store_df = pd.DataFrame(stores).drop(columns=["TrafficWeight"])
 store_weights = np.array([s["TrafficWeight"] for s in stores])
 store_weights = store_weights / store_weights.sum()
 
@@ -79,20 +77,18 @@ product_catalog = {
         ("Flat White",             2.1, 5.0),
         ("Cafe Creme",             1.8, 4.3),
     ],
-    "Cold Brew & Iced Coffee": [
+    "Cold Brew & Frappes": [
         ("Cold Brew Original",     3.2, 8.5),
         ("Iced Latte",             3.4, 9.0),
         ("Iced Americano",         3.0, 8.0),
         ("Iced Caramel Macchiato", 3.8, 10.5),
-    ],
-    "Signature Frappes & Smoothies": [
         ("Caramel Frappe",         4.2, 12.0),
         ("Mocha Frappe",           4.3, 12.5),
         ("Matcha Ice Blend",       4.6, 13.5),
         ("Mixed Berry Smoothie",   4.0, 11.0),
         ("Mango Passion Smoothie", 4.1, 11.5),
     ],
-    "Bakery & Pastries": [
+    "Pastries & Bakery": [
         ("Butter Croissant",       1.6, 4.5),
         ("Pain au Chocolat",       1.8, 5.0),
         ("Blueberry Muffin",       2.0, 5.5),
@@ -125,25 +121,22 @@ dim_products_df = pd.DataFrame(product_rows)
 # Category popularity baseline (used outside of the two named peak windows)
 category_base_weight = {
     "Espresso & Classic Coffee": 0.36,
-    "Cold Brew & Iced Coffee": 0.18,
-    "Signature Frappes & Smoothies": 0.16,
-    "Bakery & Pastries": 0.20,
+    "Cold Brew & Frappes": 0.34,
+    "Pastries & Bakery": 0.20,
     "Savory Snacks": 0.10,
 }
 
 # Category weighting during the two named local peaks
 morning_peak_weight = {
     "Espresso & Classic Coffee": 0.52,
-    "Cold Brew & Iced Coffee": 0.08,
-    "Signature Frappes & Smoothies": 0.04,
-    "Bakery & Pastries": 0.30,
+    "Cold Brew & Frappes": 0.12,
+    "Pastries & Bakery": 0.30,
     "Savory Snacks": 0.06,
 }
 afternoon_peak_weight = {
     "Espresso & Classic Coffee": 0.18,
-    "Cold Brew & Iced Coffee": 0.27,
-    "Signature Frappes & Smoothies": 0.32,
-    "Bakery & Pastries": 0.13,
+    "Cold Brew & Frappes": 0.59,
+    "Pastries & Bakery": 0.13,
     "Savory Snacks": 0.10,
 }
 
@@ -340,7 +333,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 fact_sales_df.to_csv(f"{OUTPUT_DIR}/fact_sales.csv", index=False)
 dim_products_df.to_csv(f"{OUTPUT_DIR}/dim_products.csv", index=False)
-dim_stores_df.to_csv(f"{OUTPUT_DIR}/dim_stores.csv", index=False)
+dim_store_df.to_csv(f"{OUTPUT_DIR}/dim_store.csv", index=False)
 dim_payment_df.to_csv(f"{OUTPUT_DIR}/dim_payment.csv", index=False)
 dim_channel_df.to_csv(f"{OUTPUT_DIR}/dim_channel.csv", index=False)
 # Bonus: full Dim_Date / Dim_Time so the model is importable as-is (Part 1 schema)

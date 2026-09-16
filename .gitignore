@@ -1,4 +1,17 @@
+# Python
 __pycache__/
 *.pyc
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Power BI Desktop
+*.pbix.tmp
+~$*.pbix
+*.pbix.bak
+.pbi-cache/
+
+# OS
 .DS_Store
 Thumbs.db

@@ -405,7 +405,7 @@
 
       <div class="grid3" style="grid-template-columns: 1fr 1fr;">
         <div class="kpi"><div class="label">Pastry Attachment Rate</div><div class="value tnum" id="kpiPastry">–</div><div class="delta flat">of transactions include a bakery item</div></div>
-        <div class="kpi"><div class="label">Digital vs Cash Ratio</div><div class="value tnum" id="kpiDigital">–</div><div class="delta flat">of revenue paid non-cash</div></div>
+        <div class="kpi"><div class="label">Digital Payment Adoption</div><div class="value tnum" id="kpiDigital">–</div><div class="delta flat">of revenue paid non-cash</div></div>
       </div>
 
       <div class="panel">
@@ -547,8 +547,8 @@
 
   var seriesColor = ["--series-1","--series-2","--series-3","--series-4","--series-5","--series-6","--series-7","--series-8"];
 
-  var CATEGORY_ORDER = ["Espresso & Classic Coffee","Cold Brew & Iced Coffee","Signature Frappes & Smoothies","Bakery & Pastries","Savory Snacks"];
-  var CATEGORY_SLOT = { "Espresso & Classic Coffee":0, "Cold Brew & Iced Coffee":2, "Signature Frappes & Smoothies":4, "Bakery & Pastries":1, "Savory Snacks":6 };
+  var CATEGORY_ORDER = ["Espresso & Classic Coffee","Cold Brew & Frappes","Pastries & Bakery","Savory Snacks"];
+  var CATEGORY_SLOT = { "Espresso & Classic Coffee":0, "Cold Brew & Frappes":2, "Pastries & Bakery":1, "Savory Snacks":6 };
   var PAYMENT_SLOT = {1:0, 2:1, 3:2, 4:3};      // PaymentKey -> series slot
   var CHANNEL_SLOT = {1:0, 2:1, 3:2, 4:3};      // ChannelKey -> series slot
   var STORETYPE_SLOT = { "Full Cafe":0, "Express":1 };
@@ -593,7 +593,7 @@
       t.revenue += r[COLS.revenue];
       t.cost += r[COLS.cost];
       var prod = DATA.products[r[COLS.productKey]];
-      if (prod.category === "Bakery & Pastries") t.hasPastry = true;
+      if (prod.category === "Pastries & Bakery") t.hasPastry = true;
     }
     return Array.from(map.values());
   }
