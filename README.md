@@ -71,6 +71,8 @@ baristas-coffee-analytics/
 │   └── data/                       # Generated CSVs (fact + dimensions)
 ├── dax/
 │   └── dax_measures_library.dax    # Copy-paste ready DAX measures
+├── powerbi/
+│   └── power_query_scripts.m       # Paste-ready M scripts (Advanced Editor) for all 7 tables
 ├── dashboard/
 │   ├── dashboard_wireframe_spec.md # 3-page wireframe + visual field mapping
 │   └── web/                        # Standalone interactive HTML/JS dashboard
@@ -109,10 +111,15 @@ Dim_Channel┘
    Produces `fact_sales.csv`, `dim_store.csv`, `dim_products.csv`,
    `dim_payment.csv`, `dim_channel.csv`, `dim_date.csv`, `dim_time.csv` in
    `data_generator/data/`.
-2. **Power BI route:** Get Data → Folder → point to `data_generator/data/`.
-   Build relationships per `star_schema_design.md`, mark `Dim_Date` as the
-   date table, paste in the measures from `dax/dax_measures_library.dax`,
-   then recreate the 3 report pages using `dashboard/dashboard_wireframe_spec.md`.
+2. **Power BI route (fast):** for each block in `powerbi/power_query_scripts.m`,
+   Get Data → Blank Query → Advanced Editor → paste → rename the query to the
+   name in that block's header comment. This loads and types all 7 tables in
+   one pass — no manual CSV wizard, no table-renaming step. Then: build
+   relationships per `star_schema_design.md`, mark `Dim_Date` as the date
+   table, paste in the measures from `dax/dax_measures_library.dax`, and
+   recreate the 3 report pages using `dashboard/dashboard_wireframe_spec.md`.
+   (Or the slower way: Get Data → Folder → point to `data_generator/data/`,
+   import each CSV, then manually rename the 7 tables to match the DAX file.)
 3. **Instant preview route:** open `dashboard/web/index.html` directly in a
    browser for a working interactive version of the same 3-page report,
    built from the real generated dataset (re-run `dashboard/web/build_data.py`
