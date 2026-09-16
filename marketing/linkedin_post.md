@@ -1,6 +1,6 @@
 Built a full sales analytics case study for a Tunisian specialty coffee
-chain: "Baristas Coffee Shop" — from raw data model to a 3-page Power BI
-dashboard.
+chain: "Baristas Coffee Shop" — from raw data model to a live 3-page
+dashboard, styled like Power BI end to end.
 
 The goal was to answer the questions a real café operator in Tunisia would
 actually ask:
@@ -31,14 +31,18 @@ Technical build:
   Tunisian café traffic, TND pricing, and local payment habits
 - Power Query for transformation, DAX for time intelligence and business
   KPIs (MoM growth, YTD, Peak Sales Hour, Pastry Attachment Rate)
-- A 3-page Power BI report: Executive Overview, Menu & Product Performance,
-  and a searchable Transaction Audit page
+- A 3-page report: Executive Overview, Menu & Product Performance, and a
+  searchable Transaction Audit page — live and interactive, deployed
+  straight from the repo via GitHub Pages
 
-Full project (star schema, generator script, DAX library, and wireframes)
-is on GitHub — link in the comments 👇
+No login, no download — it's live. Try the dashboard and grab the full
+project (star schema, generator script, DAX library) on GitHub — both
+links in the comments 👇
 
 #PowerBI #DataAnalytics #DAX #BusinessIntelligence #Tunisia #DataEngineering
 
 ---
-First comment (post the link here, not in the body — keeps LinkedIn's reach algorithm happy):
-https://github.com/1hamzaachour-ai/baristas-coffee-analytics
+First comment (post these here, not in the body — keeps LinkedIn's reach algorithm happy):
+
+Live dashboard: https://1hamzaachour-ai.github.io/baristas-coffee-analytics/
+Full project: https://github.com/1hamzaachour-ai/baristas-coffee-analytics
